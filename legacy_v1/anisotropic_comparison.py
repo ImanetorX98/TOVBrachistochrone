@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-brach_anisotropic.py
+anisotropic_comparison.py
 ====================
 Computes and plots coordinate-time and proper-time brachistochrones
 for isotropic vs Bowers-Liang anisotropic polytropic stars at fixed
@@ -242,9 +242,9 @@ def plot_curves(results, lambda_values=LAMBDA_VALUES, colors=COLORS, Delta=DELTA
     Bottom panel: proper-time brachistochrones.
     Each panel has a zoom inset on the turning-point cluster.
     """
-    # Calcolo altezza: axes_w ≈ 2.70 in (3.375 meno margini);
-    # con aspect uguale: axes_h = axes_w × (y_range / x_range) = 2.70 × (1.22/2.26) ≈ 1.46 in
-    # 2 pannelli + inter-panel + margini title/legend ≈ 4.2 in totali
+    # Height: axes_w ≈ 2.70 in (3.375 minus margins);
+    # with equal aspect: axes_h = axes_w × (y_range / x_range) = 2.70 × (1.22/2.26) ≈ 1.46 in
+    # 2 panels + inter-panel space + title/legend margins ≈ 4.2 in in total
     fig, axes = plt.subplots(2, 1, figsize=(3.375, 4.2))
 
     panels = [

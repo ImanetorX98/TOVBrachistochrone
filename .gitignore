@@ -1,0 +1,28 @@
+# Internal material never belongs to the public repository
+private/
+notes/
+handoff/
+HANDOFF*
+*handoff*
+RISPOSTA*
+NOTA*
+PIANO*
+*_codex*
+Fonti/
+referee/
+*.pdf.src
+# Copyrighted sources
+sources/*.pdf
+# Build and runtime artefacts
+__pycache__/
+*.pyc
+.DS_Store
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.toc
+results/runs/

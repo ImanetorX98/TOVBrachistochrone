@@ -1,0 +1,41 @@
+{
+ "manifest_version": "tov-manifest/2",
+ "profiles": {
+  "quick": {
+   "description": "Fast exact identities, the centre-slope closed forms and threshold, with their negative controls. Excludes the aperture lemma samples, the whole-curve and travel-time checks and the diagnostics.",
+   "jobs": [
+    "uniform_density_reduction",
+    "clairaut_monotonicity",
+    "centre_slope_closed_forms",
+    "centre_slope_threshold"
+   ]
+  },
+  "full": {
+   "description": "Every job of the result map, including the diagnostics (reported in a separate category).",
+   "jobs": [
+    "uniform_density_reduction",
+    "clairaut_monotonicity",
+    "centre_slope_closed_forms",
+    "centre_slope_threshold",
+    "aperture_closed_form",
+    "whole_curve",
+    "travel_times",
+    "aperture_profile"
+   ]
+  },
+  "release": {
+   "description": "The full profile on a clean working tree, with the commit, engine version and SHA-256 digests of every verification file recorded. Prepares evidence; it does not publish anything.",
+   "jobs": [
+    "uniform_density_reduction",
+    "clairaut_monotonicity",
+    "centre_slope_closed_forms",
+    "centre_slope_threshold",
+    "aperture_closed_form",
+    "whole_curve",
+    "travel_times",
+    "aperture_profile"
+   ],
+   "requires_clean_tree": true
+  }
+ }
+}

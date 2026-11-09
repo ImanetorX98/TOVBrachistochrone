@@ -1,0 +1,1018 @@
+{
+ "manifest_version": "tov-manifest/2",
+ "note": "Reviewed contract: expected check identifiers, evidence kinds and the claim of RESULTS_MAP.md each check supports. Edit by review only; never regenerate from run outputs.",
+ "jobs": [
+  {
+   "job_id": "uniform_density_reduction",
+   "script": "verification/symbolic/uniform_density_reduction.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "uniform.buchdahl_branch_point",
+    "uniform.decomposition",
+    "uniform.energy_gap",
+    "uniform.genus_two",
+    "uniform.no_obvious_splitting",
+    "uniform.reduced_aperture",
+    "uniform.turning_root"
+   ],
+   "expected_seconds": 10,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "reduction.energy_gap",
+     "kind": "exact",
+     "claim": "uniform.energy_gap"
+    },
+    {
+     "id": "reduction.dphi_dy.proper",
+     "kind": "exact",
+     "claim": "uniform.genus_two"
+    },
+    {
+     "id": "reduction.dphi_dy.coordinate",
+     "kind": "exact",
+     "claim": "uniform.genus_two"
+    },
+    {
+     "id": "reduction.sextic_squarefree.proper",
+     "kind": "exact",
+     "claim": "uniform.genus_two"
+    },
+    {
+     "id": "reduction.sextic_squarefree.coordinate",
+     "kind": "exact",
+     "claim": "uniform.genus_two"
+    },
+    {
+     "id": "reduction.turning_root.proper",
+     "kind": "exact",
+     "claim": "uniform.turning_root"
+    },
+    {
+     "id": "reduction.turning_root.coordinate",
+     "kind": "exact",
+     "claim": "uniform.turning_root"
+    },
+    {
+     "id": "reduction.decomposition.proper",
+     "kind": "exact",
+     "claim": "uniform.decomposition"
+    },
+    {
+     "id": "reduction.decomposition.coordinate",
+     "kind": "exact",
+     "claim": "uniform.decomposition"
+    },
+    {
+     "id": "reduction.buchdahl_factor",
+     "kind": "exact",
+     "claim": "uniform.decomposition"
+    },
+    {
+     "id": "reduction.buchdahl_branch_point",
+     "kind": "exact",
+     "claim": "uniform.buchdahl_branch_point"
+    },
+    {
+     "id": "reduction.half_aperture_routes.proper.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.proper.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.proper.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.proper.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.coordinate.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.half_aperture_routes.coordinate.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "uniform.reduced_aperture"
+    },
+    {
+     "id": "reduction.no_obvious_elliptic_splitting",
+     "kind": "diagnostic",
+     "claim": "uniform.no_obvious_splitting"
+    }
+   ]
+  },
+  {
+   "job_id": "clairaut_monotonicity",
+   "script": "verification/symbolic/clairaut_monotonicity.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "monotonicity.proper",
+    "monotonicity.threshold"
+   ],
+   "expected_seconds": 10,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "monotonicity.coordinate_derivative",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.discriminant",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.threshold_unique",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.endpoints",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.root_counts",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.threshold_bracket",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.double_root_at_threshold",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    },
+    {
+     "id": "monotonicity.proper_time",
+     "kind": "exact",
+     "claim": "monotonicity.proper"
+    },
+    {
+     "id": "monotonicity.non_monotone_witness",
+     "kind": "exact",
+     "claim": "monotonicity.threshold"
+    }
+   ]
+  },
+  {
+   "job_id": "centre_slope_closed_forms",
+   "script": "verification/symbolic/centre_slope_closed_forms.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "centre.coordinate_closed_form",
+    "centre.proper_buchdahl",
+    "centre.proper_closed_form"
+   ],
+   "expected_seconds": 15,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "centre_slope.legendre_map",
+     "kind": "exact",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.legendre_jacobian",
+     "kind": "exact",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.hyperbolic_case",
+     "kind": "exact",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.circular_case",
+     "kind": "exact",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.pole_factor",
+     "kind": "exact",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.w2_identity",
+     "kind": "exact",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.hermite_coordinate",
+     "kind": "exact",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.coordinate_formula",
+     "kind": "exact",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.partial_fractions_proper",
+     "kind": "exact",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_formula",
+     "kind": "exact",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_bracket_bound",
+     "kind": "exact",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.coordinate_vs_quadrature.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_vs_quadrature.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.coordinate_vs_quadrature.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_vs_quadrature.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.coordinate_vs_quadrature.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_vs_quadrature.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.coordinate_vs_quadrature.mu_87_100",
+     "kind": "numerical_check",
+     "claim": "centre.coordinate_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_vs_quadrature.mu_87_100",
+     "kind": "numerical_check",
+     "claim": "centre.proper_closed_form"
+    },
+    {
+     "id": "centre_slope.proper_buchdahl_asymptotics",
+     "kind": "numerical_check",
+     "claim": "centre.proper_buchdahl"
+    },
+    {
+     "id": "centre_slope.negative_control.drop_double_pole",
+     "kind": "negative_control",
+     "claim": "centre.proper_closed_form"
+    }
+   ]
+  },
+  {
+   "job_id": "centre_slope_threshold",
+   "script": "verification/symbolic/centre_slope_threshold.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "centre.expansion",
+    "centre.mu_delta",
+    "centre.proper_bound",
+    "centre.proper_not_monotone",
+    "centre.signs"
+   ],
+   "expected_seconds": 30,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "threshold.derivative_proper",
+     "kind": "exact",
+     "claim": "centre.signs"
+    },
+    {
+     "id": "threshold.derivative_coordinate",
+     "kind": "exact",
+     "claim": "centre.signs"
+    },
+    {
+     "id": "threshold.sufficient_sign_bound",
+     "kind": "exact",
+     "claim": "centre.signs"
+    },
+    {
+     "id": "threshold.by_parts.proper.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.centre_slope.proper.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.by_parts.proper.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.centre_slope.proper.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.by_parts.proper.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.centre_slope.proper.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.by_parts.coordinate.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.centre_slope.coordinate.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.by_parts.coordinate.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.centre_slope.coordinate.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.by_parts.coordinate.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.centre_slope.coordinate.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "centre.expansion"
+    },
+    {
+     "id": "threshold.weighted_form",
+     "kind": "exact",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.p_decreasing_in_d",
+     "kind": "exact",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.p_decreasing_in_s",
+     "kind": "exact",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.weight_mixed_derivative",
+     "kind": "exact",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.weight_increasing_in_s",
+     "kind": "exact",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.arcsine_mean",
+     "kind": "exact",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.mu_delta_bracket",
+     "kind": "numerical_check",
+     "claim": "centre.mu_delta"
+    },
+    {
+     "id": "threshold.proper_l_identity",
+     "kind": "exact",
+     "claim": "centre.proper_bound"
+    },
+    {
+     "id": "threshold.proper_l_bound",
+     "kind": "exact",
+     "claim": "centre.proper_bound"
+    },
+    {
+     "id": "threshold.proper_not_monotone_near_buchdahl",
+     "kind": "numerical_check",
+     "claim": "centre.proper_not_monotone"
+    }
+   ]
+  },
+  {
+   "job_id": "aperture_closed_form",
+   "script": "verification/symbolic/aperture_closed_form.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "aperture.closed_form",
+    "aperture.domain",
+    "lemma.third_kind"
+   ],
+   "expected_seconds": 120,
+   "timeout_seconds": 1200,
+   "checks": [
+    {
+     "id": "aperture.baker_symmetric",
+     "kind": "exact",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.baker_division",
+     "kind": "exact",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.bidifferential_identity",
+     "kind": "exact",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_1_10.q_1_2",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_3_10.q_3_10",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_1_2.q_7_10",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_4_5.q_1_5",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_1111_1250.q_9_10",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_1111_1250.q_9_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_1111_1250.q_9_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_1111_1250.q_9999_10000",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_1111_1250.q_9999_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_1111_1250.q_9999_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_1_5.q_1_10000",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_1_5.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_1_5.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.proper.mu_1111_1250.q_1_10000",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.proper.mu_1111_1250.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.proper.mu_1111_1250.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_1_10.q_1_2",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_3_10.q_3_10",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_1_2.q_7_10",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_4_5.q_1_5",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_1111_1250.q_9_10",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_1111_1250.q_9_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_1111_1250.q_9_10",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_1111_1250.q_9999_10000",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_1111_1250.q_9999_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_1111_1250.q_9999_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_1_5.q_1_10000",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_1_5.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_1_5.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.domain.coordinate.mu_1111_1250.q_1_10000",
+     "kind": "diagnostic",
+     "claim": "aperture.domain"
+    },
+    {
+     "id": "aperture.third_kind.p_plus1.coordinate.mu_1111_1250.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.third_kind.p_minus1.coordinate.mu_1111_1250.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_1111_1250.q_9_10",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_1111_1250.q_9999_10000",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_1_5.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.proper.mu_1111_1250.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_1111_1250.q_9_10",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_1111_1250.q_9999_10000",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_1_5.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.half_aperture.coordinate.mu_1111_1250.q_1_10000",
+     "kind": "numerical_check",
+     "claim": "aperture.closed_form"
+    },
+    {
+     "id": "aperture.negative_control.sign",
+     "kind": "negative_control",
+     "claim": "lemma.third_kind"
+    },
+    {
+     "id": "aperture.negative_control.R1",
+     "kind": "negative_control",
+     "claim": "lemma.third_kind"
+    }
+   ]
+  },
+  {
+   "job_id": "whole_curve",
+   "script": "verification/symbolic/whole_curve.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "curve.closed_form"
+   ],
+   "expected_seconds": 40,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "whole_curve.vs_ode.proper.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "curve.closed_form"
+    },
+    {
+     "id": "whole_curve.vs_ode.proper.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "curve.closed_form"
+    },
+    {
+     "id": "whole_curve.vs_ode.coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "curve.closed_form"
+    },
+    {
+     "id": "whole_curve.vs_ode.coordinate.mu_7_10.q_2_5",
+     "kind": "numerical_check",
+     "claim": "curve.closed_form"
+    },
+    {
+     "id": "whole_curve.negative_control.swapped_residues",
+     "kind": "negative_control",
+     "claim": "curve.closed_form"
+    }
+   ]
+  },
+  {
+   "job_id": "travel_times",
+   "script": "verification/symbolic/travel_times.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "times.closed_form",
+    "times.elements",
+    "times.newtonian_limit",
+    "times.ordering"
+   ],
+   "expected_seconds": 60,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "travel_times.time_element.proper",
+     "kind": "exact",
+     "claim": "times.elements"
+    },
+    {
+     "id": "travel_times.time_element.coordinate",
+     "kind": "exact",
+     "claim": "times.elements"
+    },
+    {
+     "id": "travel_times.coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper_less_than_coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "times.ordering"
+    },
+    {
+     "id": "travel_times.coordinate.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper_less_than_coordinate.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "times.ordering"
+    },
+    {
+     "id": "travel_times.coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper_less_than_coordinate.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "times.ordering"
+    },
+    {
+     "id": "travel_times.coordinate.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper_less_than_coordinate.mu_4_5.q_1_5",
+     "kind": "numerical_check",
+     "claim": "times.ordering"
+    },
+    {
+     "id": "travel_times.coordinate_vs_ode.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper_vs_ode.mu_3_10.q_3_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.coordinate_vs_ode.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.proper_vs_ode.mu_1_2.q_7_10",
+     "kind": "numerical_check",
+     "claim": "times.closed_form"
+    },
+    {
+     "id": "travel_times.newtonian_limit.q_1_5",
+     "kind": "numerical_check",
+     "claim": "times.newtonian_limit"
+    },
+    {
+     "id": "travel_times.newtonian_limit.q_1_2",
+     "kind": "numerical_check",
+     "claim": "times.newtonian_limit"
+    },
+    {
+     "id": "travel_times.newtonian_limit.q_9_10",
+     "kind": "numerical_check",
+     "claim": "times.newtonian_limit"
+    },
+    {
+     "id": "travel_times.negative_control.misplaced_pole",
+     "kind": "negative_control",
+     "claim": "times.closed_form"
+    }
+   ]
+  },
+  {
+   "job_id": "aperture_profile",
+   "script": "verification/diagnostics/aperture_profile.wls",
+   "engine": "wolframscript",
+   "category": "diagnostic",
+   "claims": [
+    "profile.diagnostics"
+   ],
+   "expected_seconds": 25,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "profile.proper_decreasing_on_grid",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    },
+    {
+     "id": "profile.coordinate_onset.mu_7_10",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    },
+    {
+     "id": "profile.coordinate_onset.mu_3_4",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    },
+    {
+     "id": "profile.coordinate_onset.mu_19_25",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    },
+    {
+     "id": "profile.coordinate_onset.mu_delta_minus_1_1000",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    },
+    {
+     "id": "profile.coordinate_onset.mu_delta_plus_1_1000",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    },
+    {
+     "id": "profile.coordinate_onset.mu_39_50",
+     "kind": "diagnostic",
+     "claim": "profile.diagnostics"
+    }
+   ]
+  }
+ ]
+}

@@ -1148,6 +1148,116 @@
      "claim": "aperture.threshold_divergence"
     }
    ]
+  },
+  {
+   "job_id": "aperture_monotonicity",
+   "script": "verification/symbolic/aperture_monotonicity.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "aperture.global_monotonicity_coordinate",
+    "aperture.global_monotonicity_proper",
+    "aperture.monotonicity_criterion"
+   ],
+   "expected_seconds": 20,
+   "timeout_seconds": 900,
+   "checks": [
+    {
+     "id": "monotonicity_global.angular_substitution",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.l_unified.proper",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.l_unified.coordinate",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.n_endpoints.proper",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.n_endpoints.coordinate",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.sign_of_l_y.proper",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.sign_of_l_y.coordinate",
+     "kind": "exact",
+     "claim": "aperture.monotonicity_criterion"
+    },
+    {
+     "id": "monotonicity_global.threshold.proper",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_proper"
+    },
+    {
+     "id": "monotonicity_global.threshold.coordinate",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.threshold_double_zero.proper",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_proper"
+    },
+    {
+     "id": "monotonicity_global.positivity_certificate.proper",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_proper"
+    },
+    {
+     "id": "monotonicity_global.positivity_certificate.coordinate",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.negative_control.buchdahl_certificate",
+     "kind": "negative_control",
+     "claim": "aperture.global_monotonicity_proper"
+    },
+    {
+     "id": "monotonicity_global.extension.single_sign_change",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.extension.negative_core",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.extension.h_monotone",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.extension.centre_slope",
+     "kind": "numerical_check",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.diagnostic.proper.mu_443_500",
+     "kind": "diagnostic",
+     "claim": "aperture.global_monotonicity_proper"
+    },
+    {
+     "id": "monotonicity_global.diagnostic.coordinate.mu_16_25",
+     "kind": "diagnostic",
+     "claim": "aperture.global_monotonicity_coordinate"
+    }
+   ]
   }
  ]
 }

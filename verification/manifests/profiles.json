@@ -21,7 +21,8 @@
     "whole_curve",
     "travel_times",
     "aperture_profile",
-    "aperture_endpoints"
+    "aperture_endpoints",
+    "aperture_monotonicity"
    ]
   },
   "release": {
@@ -35,7 +36,8 @@
     "whole_curve",
     "travel_times",
     "aperture_profile",
-    "aperture_endpoints"
+    "aperture_endpoints",
+    "aperture_monotonicity"
    ],
    "requires_clean_tree": true
   }

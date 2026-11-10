@@ -43,6 +43,9 @@ the executable suite).
 | `lemma.third_kind` | Ihat(p) = (2/w(p)) Sum_i [etahat_i u_i(e->p) - omegahat_i r_i(e->p)] with Baker's R_1, R_2 | `symbolic/aperture_closed_form.wls`, library `third_kind_lemma.wl` | `aperture.baker_*`, `aperture.bidifferential_identity` (exact); `aperture.third_kind.*` (numerical check); `aperture.negative_control.*` | exact + numerical check + analytic (cycle integration step) | full |
 | `aperture.closed_form` | Delta/2 = b sqrt(mu)[c.omegahat + aP Ihat(1) + aM Ihat(-1)] | same | `aperture.half_aperture.*` | numerical check | full |
 | `aperture.domain` | no root of S inside (yR, yq) on the samples | same | `aperture.domain.*` | diagnostic | full |
+| `aperture.surface_asymptotics` | Delta(q) = (pi/a)(1 - q)[1 + kappa (1 - q) + O((1 - q)^2)], kappa_tau = -7mu/(8a^2), kappa_t = mu/(8a^2); Delta extends analytically to q = 1 and Delta'(q) -> -pi/a; Newtonian limit Delta = pi(1 - q) | `symbolic/aperture_endpoints.wls` | `endpoints.surface_coefficient.*` (exact); `endpoints.surface.*`, `endpoints.surface_second_order.*` (numerical check) | exact + numerical check + analytic (factorised integrand analytic up to both ends) | full |
+| `aperture.interior_divergence` | above mu_star the coordinate-time aperture diverges logarithmically at both inner ends x_m and q0 of the regular set, with the same coefficient 2 J(x_m)/(x_m y_m sqrt(F''(x_m)/2)), F = J_t^2 | same | `endpoints.two_critical_points` (exact); `endpoints.order_of_critical_points`, `endpoints.log_coefficient_at_*` (numerical check) | exact + numerical check + analytic | full |
+| `aperture.threshold_divergence` | at mu_star, Delta ~ (2 W/sqrt(B)) |q - q_star|^(-1/2) I, W = J(q_star)/(q_star y(q_star)), B = F'''(q_star)/6, I = Beta(1/6, 1/2)/3 on the outer side and [Beta(1/3, 1/2) + Beta(1/3, 1/6)]/3 on the inner side | same | `endpoints.power_law.*` | numerical check + analytic | full |
 
 ## Centre expansion and thresholds
 

@@ -1013,6 +1013,141 @@
      "claim": "profile.diagnostics"
     }
    ]
+  },
+  {
+   "job_id": "aperture_endpoints",
+   "script": "verification/symbolic/aperture_endpoints.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "aperture.interior_divergence",
+    "aperture.surface_asymptotics",
+    "aperture.threshold_divergence"
+   ],
+   "expected_seconds": 30,
+   "timeout_seconds": 600,
+   "checks": [
+    {
+     "id": "endpoints.surface_coefficient.proper",
+     "kind": "exact",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_coefficient.coordinate",
+     "kind": "exact",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.proper.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.proper.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.proper.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.proper.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.proper.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.proper.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.proper.mu_22_25",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.proper.mu_22_25",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.coordinate.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.coordinate.mu_1_10",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.coordinate.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.coordinate.mu_1_2",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.coordinate.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.coordinate.mu_4_5",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface.coordinate.mu_22_25",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.surface_second_order.coordinate.mu_22_25",
+     "kind": "numerical_check",
+     "claim": "aperture.surface_asymptotics"
+    },
+    {
+     "id": "endpoints.two_critical_points",
+     "kind": "exact",
+     "claim": "aperture.interior_divergence"
+    },
+    {
+     "id": "endpoints.order_of_critical_points",
+     "kind": "numerical_check",
+     "claim": "aperture.interior_divergence"
+    },
+    {
+     "id": "endpoints.log_coefficient_at_x_m",
+     "kind": "numerical_check",
+     "claim": "aperture.interior_divergence"
+    },
+    {
+     "id": "endpoints.log_coefficient_at_q0",
+     "kind": "numerical_check",
+     "claim": "aperture.interior_divergence"
+    },
+    {
+     "id": "endpoints.power_law.right",
+     "kind": "numerical_check",
+     "claim": "aperture.threshold_divergence"
+    },
+    {
+     "id": "endpoints.power_law.left",
+     "kind": "numerical_check",
+     "claim": "aperture.threshold_divergence"
+    }
+   ]
   }
  ]
 }

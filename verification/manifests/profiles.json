@@ -20,7 +20,8 @@
     "aperture_closed_form",
     "whole_curve",
     "travel_times",
-    "aperture_profile"
+    "aperture_profile",
+    "aperture_endpoints"
    ]
   },
   "release": {
@@ -33,7 +34,8 @@
     "aperture_closed_form",
     "whole_curve",
     "travel_times",
-    "aperture_profile"
+    "aperture_profile",
+    "aperture_endpoints"
    ],
    "requires_clean_tree": true
   }

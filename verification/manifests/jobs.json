@@ -1248,6 +1248,11 @@
      "claim": "aperture.global_monotonicity_coordinate"
     },
     {
+     "id": "monotonicity_global.extension.centre_slope_bound",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
      "id": "monotonicity_global.extension.centre_slope",
      "kind": "numerical_check",
      "claim": "aperture.global_monotonicity_coordinate"

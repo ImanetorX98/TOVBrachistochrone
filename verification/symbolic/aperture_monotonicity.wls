@@ -21,7 +21,8 @@
    Integral extension for t to mu <= 16/25 (a >= 3/5). With A = Delta/2 and H = Phi'(j)/j, A'(b) = Int_b^oo Phi' dj/
    Sqrt[j^2 - b^2] and A'(0) = C_t; if H has a single sign change (from + to -), is decreasing where positive, and C_t <= 0,
    then A'(b) < 0 for b > 0. Checked: one sign change of N_t on (a, 1) for a in [3/5, a_t); N_t(a, 9/10) < 0 on [3/5, 7/10];
-   d/dy (H/mu) > 0 on [3/5, 7/10] x [9/10, 1]; C_t(16/25) < 0 (the paper gives an analytic inequality; here its value).
+   d/dy (H/mu) > 0 on [3/5, 7/10] x [9/10, 1]; C_t(16/25) < 0 by an analytic inequality between K, E and Pi (exact
+   algebraic steps checked here), and also by the value of the closed form.
    Diagnostics: Delta monotone on 217 radii near the proved limits. *)
 
 Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "common.wl"}]];
@@ -126,12 +127,27 @@ Module[{fF = 16 (1 - y^2)/((3 a - y)^2 q), hOverMu},
   tovRecord["monotonicity_global.extension.h_monotone", "exact",
    "d/dy (H/mu) > 0 on [3/5, 7/10] x [9/10, 1], i.e. H = Phi'(j)/j decreasing in j where Phi' > 0",
    Reduce[3/5 <= a <= 7/10 && 9/10 <= y <= 1 && Together[D[hOverMu, y]] <= 0, {a, y}, Reals] === False]];
+(* C_t(16/25) < 0 without numerical evaluation (a = 3/5). With s = Sin[theta]^2, Sqrt[1 - m s] = 1/Sqrt[1 - m s] -
+   m s/Sqrt[1 - m s] gives E = K - m I, I = Int_0^{Pi/2} s d theta/Sqrt[1 - m s]. Analytic steps (not executed here):
+   Pi(nu|m) >= K for nu > 0; K >= Pi/2 and I <= (Pi/4)/Sqrt[1 - m], so I/K <= 1/(2 Sqrt[1 - m]). Exact steps below: m = 1/3,
+   nu = 1/5, the bracket is at most -(24/25) K + (36/25) I, and (36/25)/(2 Sqrt[1 - m]) < 24/25, so the bracket is negative. *)
+Module[{av = 3/5, mm, nn, kk, ee, ii, pp, bracket, ok},
+  mm = (1 - av) (1 + 5 av)/(8 av); nn = (1 - av)/2;
+  bracket = (1 + 3 av + 6 av^2) kk - 12 av^2 ee - (1 + av) pp;
+  ok = mm === 1/3 && nn === 1/5 &&
+    Simplify[Sqrt[1 - mm s] - (1/Sqrt[1 - mm s] - mm s/Sqrt[1 - mm s]), 0 < s < 1] === 0 &&
+    Expand[(bracket /. {ee -> kk - mm ii, pp -> kk}) - (-(24/25) kk + (36/25) ii)] === 0 &&
+    Coefficient[bracket, pp] < 0 &&
+    (36/25)/(2 Sqrt[1 - mm]) < 24/25;
+  tovRecord["monotonicity_global.extension.centre_slope_bound", "exact",
+   "C_t(16/25) < 0 analytically: m = 1/3, E = K - m I, Pi >= K, I/K <= 1/(2 Sqrt[1 - m]) < 2/3 make the bracket negative",
+   TrueQ[ok]]];
 Module[{av = 3/5, mm, nn, ct},
   mm = (1 - av) (1 + 5 av)/(8 av); nn = (1 - av)/2;
   ct = N[(Sqrt[2 (1 - av^2)/av]/8) ((1 + 3 av + 6 av^2) EllipticK[mm] - 12 av^2 EllipticE[mm] - (1 + av) EllipticPi[nn, mm]), 30];
   tovValue["C_t_at_16_25", ct, 20];
   tovRecord["monotonicity_global.extension.centre_slope", "numerical_check",
-   "C_t(16/25) < 0 (closed form evaluated at 30 digits; the paper gives an analytic inequality)", ct < 0]];
+   "C_t(16/25) < 0 (closed form evaluated at 30 digits; independent of the analytic bound above)", ct < 0]];
 
 (* diagnostics near the proved limits *)
 nsqY["proper"][z_, av_] := (3 av - z)^2/((z - av) (5 av - z));

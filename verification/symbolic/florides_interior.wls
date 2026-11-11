@@ -14,7 +14,7 @@
      - curvature: L_tau,y < 0 on (a, 1) for every mu < 1 (numerator (y - a)^2 - (1 - a^2) < -2a(1 - a));
        L_t,y <= 0 iff a >= 2/3 (mu <= 5/9), by convexity in a and the end values N(y, y), N(2/3, y);
      - central slopes: C_tau < 0 for every mu; C_t = -(Sqrt[mu] a^(5/2)/(2 Sqrt[1 + a])) M(a) with M strictly increasing
-       (exact derivative identity, positive term by term), M(0+) < 0 and M(1/2) > 0, so C_t has exactly one zero; its
+       (exact derivative identity whose sum is positive), M(0+) < 0 and M(1/2) > 0, so C_t has exactly one zero; its
        location mu_Delta^F is bracketed by bisection (numerical localisation);
      - negative control: the isotropic uniform-density lapse ((3a - y)/2)^2 fails the tau curvature inequality near the
        Buchdahl bound, so the inequality is not automatic;
@@ -48,8 +48,9 @@ Module[{yr, fr, hr, crd, g, gi, gam, ric, rs, gm, rho, pr, pt, th, ph, t, r, mu}
     Simplify[(D[fr, r] /. r -> 1) - mu, 0 < a < 1] === 0];
   tovRecord["florides.dominant_energy", "exact",
    "p_T <= rho on 0 <= x <= 1 iff mu <= 4/5",
-   Reduce[0 < m < 1 && ForAll[xx, 0 <= xx <= 1, m xx^2/(4 (1 - m xx^2)) <= 1], m, Reals] ===
-    Inequality[0, Less, m, LessEqual, 4/5]]];
+   (* on the domain 4 (1 - m x^2) > 0 the predicate is the polynomial inequality 5 m x^2 <= 4 *)
+   Simplify[(m xx^2/(4 (1 - m xx^2)) <= 1) == (5 m xx^2 <= 4), 0 < m < 1 && 0 <= xx <= 1] &&
+    Reduce[0 < m < 1 && ForAll[xx, 0 <= xx <= 1, 5 m xx^2 <= 4], m, Reals] === Inequality[0, Less, m, LessEqual, 4/5]]];
 
 tovRecord["florides.indices", "exact", "n_tau^2 = a/(y - a) and n_t^2 = y^2/(a^5 (y - a)) with E^2 = a^2",
   Simplify[fY/(e2 - fY) - ntau2, dom] === 0 && Simplify[1/(fY (e2 - fY)) - nt2, dom] === 0];
@@ -77,12 +78,14 @@ Module[{mu = 1 - a^2, jTau2, jT2, pp},
   tovRecord["florides.clairaut.proper", "exact", "d(J_tau^2)/dy < 0 on (a, 1) for every 0 < a < 1",
    Reduce[dom && Numerator[Together[D[jTau2, y]]] (Denominator[Together[D[jTau2, y]]]) >= 0, {a, y}, Reals] === False];
   tovRecord["florides.clairaut.coordinate", "exact",
-   "d(J_t^2)/dy = -y p/(mu a^5 (y - a)^2), p = 3y^3 - 4ay^2 - y + 2a, Disc_y p = 4(a^2 - 1)(128 a^2 - 3), p(a), p(1) > 0; at a^2 = 3/128, p = 3 (y - Sqrt[6]/6)^2 (y + Sqrt[6]/4); p > 0 on (a, 1) for a^2 > 3/128 (decided on the polynomial)",
+   "d(J_t^2)/dy = -y p/(mu a^5 (y - a)^2), p = 3y^3 - 4ay^2 - y + 2a, Disc_y p = 4(a^2 - 1)(128 a^2 - 3), p(a) = a(1 - a^2) > 0, p(1) = 2(1 - a) > 0; at a^2 = 3/128, p = 3 (y - Sqrt[6]/6)^2 (y + Sqrt[6]/4); p > 0 on (a, 1) for a^2 > 3/128 (decided on the polynomial); for a^2 < 3/128 the witness p(Sqrt[6]/6) = (4/3)(a - Sqrt[6]/16) < 0",
    Simplify[D[jT2, y] + y pp/(mu a^5 (y - a)^2)] === 0 &&
     Factor[Discriminant[pp, y] - 4 (a^2 - 1) (128 a^2 - 3)] === 0 &&
     Simplify[(pp /. a -> Sqrt[6]/16) - 3 (y - Sqrt[6]/6)^2 (y + Sqrt[6]/4)] === 0 &&
     Reduce[Sqrt[3/128] < a < 1 && a < y < 1 && pp <= 0, {a, y}, Reals] === False &&
-    Reduce[0 < a < Sqrt[3/128] && ForAll[y, a < y < 1, pp > 0], a, Reals] === False]];
+    Expand[(pp /. y -> a) - a (1 - a^2)] === 0 && Expand[(pp /. y -> 1) - 2 (1 - a)] === 0 &&
+    (* below the threshold an exact witness: p(Sqrt[6]/6) = (4/3)(a - Sqrt[6]/16) < 0, with a < Sqrt[6]/6 < 1 *)
+    Simplify[(pp /. y -> Sqrt[6]/6) - 4/3 (a - Sqrt[6]/16)] === 0]];
 
 (* --- curvature criterion: L = y (1 + x n'/n), x n'/n = -(1 - y^2)/y d(log n)/dy; decided on numerators --- *)
 Module[{lOf, lTau, lT, nTau, nT},
@@ -132,8 +135,8 @@ Module[{nIso, lIso, aB = 335/1000},
   nIso = ((3 a - y)/2)^2/(a^2 - ((3 a - y)/2)^2);
   lIso = Simplify[y (1 - (1 - y^2)/y D[Log[nIso]/2, y]), dom];
   tovRecord["florides.negative_control.isotropic", "negative_control",
-   "for the isotropic interior at a = 335/1000 (mu above mu_tau) the proper-time L_y is positive somewhere in (a, 1)",
-   Reduce[aB < y < 1 && (D[lIso, y] /. a -> aB) > 0, y, Reals] =!= False]];
+   "for the isotropic interior at a = 335/1000 (mu above mu_tau) the proper-time L_y is positive at the exact witness y = 17/20 (pointwise criterion fails)",
+   With[{v = D[lIso, y] /. {a -> aB, y -> 17/20}}, Simplify[v] === 290576009/1233625129 && v > 0]]];
 
 (* --- diagnostic: half-aperture of tau decreasing on a grid at mu = 19/20 --- *)
 Module[{muv = 19/20, av, half, qs, vals},

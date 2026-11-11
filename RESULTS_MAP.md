@@ -75,6 +75,13 @@ the executable suite).
 | `times.ordering` | tau_half < t_half at equal q | same | `travel_times.proper_less_than_coordinate.*` | numerical check + analytic | full |
 | `times.newtonian_limit` | t_half ~ tau_half ~ (pi/2) sqrt(2/mu) sqrt(1 - q^2); total time ~ pi sqrt(R^3/(GM)) sqrt(1 - q^2) | same | `travel_times.newtonian_limit.*` | numerical check + analytic | full |
 
+## Hamilton-Jacobi identity and global minimality
+
+| Claim | Statement | Script | Checks | Evidence | Profile |
+|---|---|---|---|---|---|
+| `minimality.hamilton_jacobi` | W = T - b Delta = 2 Int_q^1 Sqrt[h] Sqrt[J^2 - b^2]/x dx, dW/db = -Delta, hence dT/dq = b dDelta/dq (tau = T, t = a T); comparison T(q1) - T(q2) = Int_q2^q1 J'(theta - Delta) dq and the identity with the diameter T(q) - T_diam = J(q)(Delta - pi) + Int_0^q J'(pi - Delta) | `symbolic/hamilton_jacobi.wls` | `hj.w_integrand_identity` (exact); `hj.derivative_identity.*` (numerical check) | exact + numerical check + analytic (differentiation under the integral, limit q -> 0) | full |
+| `minimality.antipodal_witness` | mu = 4/5, coordinate time: an antipodal regular extremal (q = 0.5359632383..., Delta(q) = pi) takes 13.88606 R/c against 14.23038 R/c along the diameter, a saving of 2.42% of the diameter time; the grid scan does not certify the smallest root, and the analytic non-minimality of the diameter for mu_Delta < mu < 8/9 does not rest on this check | same | `hj.antipodal.*` | numerical check | full |
+
 ## An anisotropic interior beyond the Buchdahl bound (Florides)
 
 Notation as above, but `0 < mu < 1`; lapse squared `f = a^3/y`, `h = 1/y^2`, vanishing radial pressure. The model is
@@ -96,6 +103,8 @@ the constant-density Florides interior in the form of Boehmer and Lobo (arXiv:gr
 - The covariance (Chebyshev) inequality in the uniqueness proof of `centre.mu_delta`.
 - The asymptotic arguments behind `centre.expansion` (remainder O(b^3)), `centre.proper_buchdahl`,
   `centre.proper_not_monotone`, `times.ordering` and `times.newtonian_limit`.
+- The angular compression argument showing that the diameter is not a minimiser for mu_Delta < mu < 8/9
+  (coordinate time), and the limit q -> 0 of W in `minimality.hamilton_jacobi`.
 - For the Florides interior: the general monotonicity criterion and uniqueness corollary applied to
   `anisotropic.proper_uniqueness`, and the limit M(0+) < 0 in `anisotropic.centre_slopes`.
 

@@ -23,7 +23,8 @@
     "aperture_profile",
     "aperture_endpoints",
     "aperture_monotonicity",
-    "florides_interior"
+    "florides_interior",
+    "hamilton_jacobi"
    ]
   },
   "release": {
@@ -39,7 +40,8 @@
     "aperture_profile",
     "aperture_endpoints",
     "aperture_monotonicity",
-    "florides_interior"
+    "florides_interior",
+    "hamilton_jacobi"
    ],
    "requires_clean_tree": true
   }

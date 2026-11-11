@@ -1366,6 +1366,75 @@
      "claim": "anisotropic.proper_uniqueness"
     }
    ]
+  },
+  {
+   "job_id": "hamilton_jacobi",
+   "script": "verification/symbolic/hamilton_jacobi.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "minimality.antipodal_witness",
+    "minimality.hamilton_jacobi"
+   ],
+   "expected_seconds": 120,
+   "timeout_seconds": 900,
+   "checks": [
+    {
+     "id": "hj.w_integrand_identity",
+     "kind": "exact",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.proper.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.proper.mu_1_2.q_3_10",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.proper.mu_4_5.q_7_10",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.proper.mu_4_5.q_1_10",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.coordinate.mu_1_10.q_1_2",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.coordinate.mu_1_2.q_3_10",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.coordinate.mu_4_5.q_7_10",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.derivative_identity.coordinate.mu_4_5.q_1_10",
+     "kind": "numerical_check",
+     "claim": "minimality.hamilton_jacobi"
+    },
+    {
+     "id": "hj.antipodal.aperture_pi",
+     "kind": "numerical_check",
+     "claim": "minimality.antipodal_witness"
+    },
+    {
+     "id": "hj.antipodal.faster_than_diameter",
+     "kind": "numerical_check",
+     "claim": "minimality.antipodal_witness"
+    }
+   ]
   }
  ]
 }

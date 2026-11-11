@@ -75,6 +75,20 @@ the executable suite).
 | `times.ordering` | tau_half < t_half at equal q | same | `travel_times.proper_less_than_coordinate.*` | numerical check + analytic | full |
 | `times.newtonian_limit` | t_half ~ tau_half ~ (pi/2) sqrt(2/mu) sqrt(1 - q^2); total time ~ pi sqrt(R^3/(GM)) sqrt(1 - q^2) | same | `travel_times.newtonian_limit.*` | numerical check + analytic | full |
 
+## An anisotropic interior beyond the Buchdahl bound (Florides)
+
+Notation as above, but `0 < mu < 1`; lapse squared `f = a^3/y`, `h = 1/y^2`, vanishing radial pressure. The model is
+the constant-density Florides interior in the form of Boehmer and Lobo (arXiv:gr-qc/0703024, eqs. (10)-(11)).
+
+| Claim | Statement | Script | Checks | Evidence | Profile |
+|---|---|---|---|---|---|
+| `anisotropic.model` | rho = 3 mu/(8 pi), p_r = 0, p_T/rho = mu x^2/(4(1 - mu x^2)); matching data f = a^2, h = 1/a^2, f' = mu at x = 1; dominant energy condition on the whole sphere iff mu <= 4/5; indices n_tau^2 = a/(y - a), n_t^2 = y^2/(a^5 (y - a)) | `symbolic/florides_interior.wls` | `florides.einstein`, `.matching`, `.dominant_energy`, `.indices` | exact | full |
+| `anisotropic.genus` | tau: (dphi/dy)^2 = b^2 mu N^2/((1 - y^2)^2 w^2) with a square-free cubic w^2 (genus one); t: a quintic, square-free at a witness | same | `florides.reduction.*` | exact | full |
+| `anisotropic.clairaut` | J_tau increasing for every mu < 1; J_t strictly increasing iff mu <= 125/128 (Disc = 4(a^2 - 1)(128 a^2 - 3), double zero of J_t' at the threshold) | same | `florides.clairaut.*` | exact | full |
+| `anisotropic.proper_uniqueness` | L_tau,y < 0 for every mu < 1, so Delta_tau is strictly decreasing and the proper-time minimiser is unique for every mu < 1 | same | `florides.curvature.proper` (exact); `florides.negative_control.isotropic`; `florides.diagnostic.proper_decreasing` | exact + analytic (general criterion and uniqueness corollary) + diagnostic | full |
+| `anisotropic.coordinate_curvature` | L_t,y <= 0 on the whole interior iff mu <= 5/9 (convexity in a, end values N(y, y) and N(2/3, y)) | same | `florides.curvature.coordinate` | exact | full |
+| `anisotropic.centre_slopes` | C_tau < 0 for every mu; C_t = -(sqrt(mu) a^(5/2)/(2 sqrt(1 + a))) M(a) with M strictly increasing, M(0+) < 0, M(1/2) > 0: a unique simple zero mu_Delta^F = 0.9474223875473...; the JSON records a bisection bracket (numerical localisation) | same | `florides.centre.*` (exact); `florides.centre.mu_delta_bracket` (numerical check) | exact + numerical check + analytic (limit M(0+) < 0 by dominated convergence) | full |
+
 ## Analytic steps not executed by the suite
 
 - The cycle-integration step of `lemma.third_kind` (symmetry of the bidifferential, vanishing of exact terms on the
@@ -82,5 +96,7 @@ the executable suite).
 - The covariance (Chebyshev) inequality in the uniqueness proof of `centre.mu_delta`.
 - The asymptotic arguments behind `centre.expansion` (remainder O(b^3)), `centre.proper_buchdahl`,
   `centre.proper_not_monotone`, `times.ordering` and `times.newtonian_limit`.
+- For the Florides interior: the general monotonicity criterion and uniqueness corollary applied to
+  `anisotropic.proper_uniqueness`, and the limit M(0+) < 0 in `anisotropic.centre_slopes`.
 
 These will be written out in the paper; the suite checks the identities and the numbers they rest on.

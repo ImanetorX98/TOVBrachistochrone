@@ -1268,6 +1268,104 @@
      "claim": "aperture.global_monotonicity_coordinate"
     }
    ]
+  },
+  {
+   "job_id": "florides_interior",
+   "script": "verification/symbolic/florides_interior.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "anisotropic.centre_slopes",
+    "anisotropic.clairaut",
+    "anisotropic.coordinate_curvature",
+    "anisotropic.genus",
+    "anisotropic.model",
+    "anisotropic.proper_uniqueness"
+   ],
+   "expected_seconds": 60,
+   "timeout_seconds": 900,
+   "checks": [
+    {
+     "id": "florides.einstein",
+     "kind": "exact",
+     "claim": "anisotropic.model"
+    },
+    {
+     "id": "florides.matching",
+     "kind": "exact",
+     "claim": "anisotropic.model"
+    },
+    {
+     "id": "florides.dominant_energy",
+     "kind": "exact",
+     "claim": "anisotropic.model"
+    },
+    {
+     "id": "florides.indices",
+     "kind": "exact",
+     "claim": "anisotropic.model"
+    },
+    {
+     "id": "florides.reduction.proper",
+     "kind": "exact",
+     "claim": "anisotropic.genus"
+    },
+    {
+     "id": "florides.reduction.coordinate",
+     "kind": "exact",
+     "claim": "anisotropic.genus"
+    },
+    {
+     "id": "florides.clairaut.proper",
+     "kind": "exact",
+     "claim": "anisotropic.clairaut"
+    },
+    {
+     "id": "florides.clairaut.coordinate",
+     "kind": "exact",
+     "claim": "anisotropic.clairaut"
+    },
+    {
+     "id": "florides.curvature.proper",
+     "kind": "exact",
+     "claim": "anisotropic.proper_uniqueness"
+    },
+    {
+     "id": "florides.curvature.coordinate",
+     "kind": "exact",
+     "claim": "anisotropic.coordinate_curvature"
+    },
+    {
+     "id": "florides.centre.proper",
+     "kind": "exact",
+     "claim": "anisotropic.centre_slopes"
+    },
+    {
+     "id": "florides.centre.coordinate_form",
+     "kind": "exact",
+     "claim": "anisotropic.centre_slopes"
+    },
+    {
+     "id": "florides.centre.coordinate_monotone",
+     "kind": "exact",
+     "claim": "anisotropic.centre_slopes"
+    },
+    {
+     "id": "florides.centre.mu_delta_bracket",
+     "kind": "numerical_check",
+     "claim": "anisotropic.centre_slopes"
+    },
+    {
+     "id": "florides.negative_control.isotropic",
+     "kind": "negative_control",
+     "claim": "anisotropic.proper_uniqueness"
+    },
+    {
+     "id": "florides.diagnostic.proper_decreasing",
+     "kind": "diagnostic",
+     "claim": "anisotropic.proper_uniqueness"
+    }
+   ]
   }
  ]
 }

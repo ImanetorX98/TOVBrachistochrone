@@ -22,7 +22,8 @@
     "travel_times",
     "aperture_profile",
     "aperture_endpoints",
-    "aperture_monotonicity"
+    "aperture_monotonicity",
+    "florides_interior"
    ]
   },
   "release": {
@@ -37,7 +38,8 @@
     "travel_times",
     "aperture_profile",
     "aperture_endpoints",
-    "aperture_monotonicity"
+    "aperture_monotonicity",
+    "florides_interior"
    ],
    "requires_clean_tree": true
   }

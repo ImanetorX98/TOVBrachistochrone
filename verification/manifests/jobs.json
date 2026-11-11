@@ -75,6 +75,11 @@
      "claim": "uniform.buchdahl_branch_point"
     },
     {
+     "id": "reduction.buchdahl_angular_regular",
+     "kind": "exact",
+     "claim": "uniform.buchdahl_branch_point"
+    },
+    {
      "id": "reduction.half_aperture_routes.proper.mu_1_10.q_1_2",
      "kind": "numerical_check",
      "claim": "uniform.reduced_aperture"

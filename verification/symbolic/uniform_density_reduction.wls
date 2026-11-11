@@ -10,9 +10,11 @@
 
    Claims checked:
      - E^2 - f = (y - yR)(5 yR - y)/4;
-     - dphi/dy = -b Sqrt[mu] N(y)/((1 - y^2) w), w^2 = S(y) a sextic, square-free for generic parameters;
+     - dphi/dy = -b Sqrt[mu] N(y)/((1 - y^2) w), w^2 = S(y) a sextic, square-free on the physical family mu = 1 - yR^2
+       for generic (yR, b);
      - P(yq) = 0 at the Clairaut constant (the turning point is a known root);
      - N/(1 - y^2) = c.(1, y) + aP/(y - 1) + aM/(y + 1) with exact coefficients (first plus third kind);
+     - at mu = 8/9 (yR = 1/3) the t-curve's angular differential is regular at the merged branch point over the centre;
      - the half-aperture by the reduced y-integral equals the x-quadrature (numerical check);
      - no Moebius involution permutes the six roots on the samples (diagnostic). *)
 
@@ -46,9 +48,14 @@ Do[
     Simplify[Together[lhs - rhs], Assumptions -> 0 < mu < 8/9 && yR > 0 && y > 0] === 0]],
   {m, modes}];
 
-Do[tovRecord["reduction.sextic_squarefree." <> m, "exact",
-   "S has degree 6 and gcd(S, S') = 1 over the parameter field, " <> m <> " time",
-   Exponent[sextic[m], y] == 6 && Exponent[PolynomialGCD[sextic[m], D[sextic[m], y]], y] == 0],
+(* square-freeness on the physical family: mu = 1 - yR^2 is substituted first, so the gcd is taken in Q(yR, b)[y];
+   an exact witness (yR, b) = (1/2, 1) shows that the specialised discriminant is not the zero polynomial *)
+Do[Module[{sp = Expand[sextic[m] /. mu -> 1 - yR^2], sw},
+   sw = Expand[sp /. {yR -> 1/2, b -> 1}];
+   tovRecord["reduction.sextic_squarefree." <> m, "exact",
+    "after mu = 1 - yR^2, S has degree 6 and gcd_y(S, S') = 1 in Q(yR, b)[y]; witness (yR, b) = (1/2, 1), " <> m <> " time",
+    Exponent[sp, y] == 6 && Exponent[PolynomialGCD[sp, D[sp, y]], y] == 0 &&
+     Exponent[sw, y] == 6 && Exponent[PolynomialGCD[sw, D[sw, y]], y] == 0 && Discriminant[sw, y] =!= 0]],
   {m, modes}];
 
 Do[tovRecord["reduction.turning_root." <> m, "exact",
@@ -69,6 +76,9 @@ tovRecord["reduction.buchdahl_branch_point", "exact",
   "at yR = 1/3: P_t(1) = 0 and P_t'(1) = -32 for every b, so the two points over y = 1 merge into a simple branch point",
   Simplify[(pPoly["coordinate"] /. {yR -> 1/3, y -> 1})] === 0 &&
    Simplify[(D[pPoly["coordinate"], y] /. {yR -> 1/3, y -> 1, mu -> 8/9})] === -32];
+tovRecord["reduction.buchdahl_angular_regular", "exact",
+  "at yR = 1/3 the angular coefficient of the coordinate-time curve is N_t/(1 - y^2) = D/(1 + y), regular at y = 1",
+  Simplify[(numer["coordinate"]/(1 - y^2) /. yR -> 1/3) - (dPoly /. yR -> 1/3)/(1 + y)] === 0];
 
 (* numerical check: half-aperture in x (metric written directly) against the reduced y-integral *)
 halfApertureX[m_, muv_, qv_] := Module[{a = Sqrt[1 - muv], fx, nx, bv},

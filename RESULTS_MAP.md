@@ -21,10 +21,10 @@ the executable suite).
 | Claim | Statement | Script | Checks | Evidence | Profile |
 |---|---|---|---|---|---|
 | `uniform.energy_gap` | E^2 - f = Q/4 | `symbolic/uniform_density_reduction.wls` | `reduction.energy_gap` | exact | quick |
-| `uniform.genus_two` | dphi/dy = -b sqrt(mu) N/((1 - y^2) w) on the outgoing branch, w^2 = S sextic, square-free for generic parameters; Disc(S) != 0 is a hypothesis for specific parameters | same | `reduction.dphi_dy.*`, `reduction.sextic_squarefree.*` | exact (squared form, generic gcd) + analytic (sign) | quick |
+| `uniform.genus_two` | dphi/dy = -b sqrt(mu) N/((1 - y^2) w) on the outgoing branch, w^2 = S sextic, square-free for generic (a, b) after substituting mu = 1 - a^2 (exact witness (a, b) = (1/2, 1)); Disc(S) != 0 is a hypothesis for specific parameters | same | `reduction.dphi_dy.*`, `reduction.sextic_squarefree.*` | exact (squared form, specialised gcd) + analytic (sign) | quick |
 | `uniform.turning_root` | the turning point y_q is a root of S | same | `reduction.turning_root.*` | exact | quick |
 | `uniform.decomposition` | N/(1 - y^2) = c.(1, y) + aP/(y - 1) + aM/(y + 1); aP of the t-curve carries (3a - 1) | same | `reduction.decomposition.*`, `reduction.buchdahl_factor` | exact | quick |
-| `uniform.buchdahl_branch_point` | at mu = 8/9, P_t(1) = 0 and P_t'(1) = -32: the two points over the centre merge into a simple branch point, where dy/w is regular in the local parameter sqrt(y - 1) (at fixed q); the vanishing of aP alone would not suffice | same | `reduction.buchdahl_branch_point` | exact + analytic | quick |
+| `uniform.buchdahl_branch_point` | at mu = 8/9, P_t(1) = 0 and P_t'(1) = -32: the two points over the centre merge into a simple branch point, where dy/w is regular in the local parameter sqrt(y - 1) and N_t/(1 - y^2) = D/(1 + y), so the angular differential is regular there (at fixed q); the vanishing of aP alone would not suffice | same | `reduction.buchdahl_branch_point`, `reduction.buchdahl_angular_regular` | exact + analytic | quick |
 | `uniform.reduced_aperture` | the reduced y-integral equals the x-quadrature | same | `reduction.half_aperture_routes.*` | numerical check | quick |
 | `uniform.no_obvious_splitting` | no Moebius involution permutes the six roots (samples) | same | `reduction.no_obvious_elliptic_splitting` | diagnostic | quick |
 

@@ -14,7 +14,9 @@
        (Chebyshev) step is an analytic argument recorded in the paper, not executed here;
      - mu_Delta located by bisection on the closed form of C_t (the digits evaluate the exact equation);
      - L_tau = 1/F = y + 4a^2 (1 - y^2)/((3a - y) Q) > 1 (exact), hence 0 < Delta_tau < Pi for all mu < 8/9;
-     - Delta_tau is not monotone near the Buchdahl limit (numerical check at mu = 8/9 - 1e-12). *)
+     - Delta_tau is not monotone near the Buchdahl limit (numerical check at mu = 8/9 - 1e-12);
+     - on the limiting model mu = 8/9 the proper-time aperture is Pi/3 + C q^2 + o(q^2) with
+       C = 16 Sqrt[Pi] Gamma[7/6]/(27 Gamma[2/3]) > 0 (exact series and constant, numerical check of the slope). *)
 
 Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "common.wl"}]];
 qq = (y - a) (5 a - y);
@@ -120,5 +122,38 @@ Module[{muB = 8/9 - 10^-12, h1, h2},
   tovValue["half_aperture_proper.near_buchdahl.q_0.02", h2, 15];
   tovRecord["threshold.proper_not_monotone_near_buchdahl", "numerical_check",
    "at mu = 8/9 - 1e-12 the proper-time half-aperture increases from q = 0.01 to q = 0.02", h2 > h1]];
+
+(* limiting model a = 1/3 (mu = 8/9), proper time: Phi_tau = 1/L_tau = 1/3 + (8/81) x^2 + O(x^4), J_tau = (2/3) x^3 + O(x^5),
+   hence Phi_tau = 1/3 + kappa j^(2/3) + O(j^(4/3)), kappa = (8/81)(3/2)^(2/3), and
+   Delta_tau(q) = Pi/3 + C q^2 + o(q^2), C = 2 kappa (2/3)^(2/3) Int_0^(Pi/2) sec^(2/3) = 16 Sqrt[Pi] Gamma[7/6]/(27 Gamma[2/3]) > 0 *)
+Module[{aL = 1/3, muL = 8/9, yL, nL, lL, jL, phiS, jS, phi2, cc, ccStar, secInt, limHalf, ratio},
+  yL[x_] := Sqrt[1 - muL x^2];
+  nL[x_] := (3 aL - yL[x])/Sqrt[(yL[x] - aL) (5 aL - yL[x])];
+  lL = Simplify[yL[x] D[x nL[x], x]/nL[x]];
+  phiS = Normal[Series[1/lL, {x, 0, 3}]];
+  jS = Normal[Series[x nL[x], {x, 0, 4}]];
+  tovRecord["threshold.limit_model_proper_series", "exact",
+   "at mu = 8/9: 1/L_tau = 1/3 + (8/81) x^2 + O(x^4) and J_tau = (2/3) x^3 + O(x^5)",
+   Simplify[phiS - (1/3 + 8 x^2/81)] === 0 && Simplify[jS - 2 x^3/3] === 0];
+  secInt = Integrate[Sec[t]^(2/3), {t, 0, Pi/2}];
+  (* C = 2 kappa (2/3)^(2/3) secInt with kappa = phi2 (3/2)^(2/3), phi2 the x^2 coefficient of 1/L_tau *)
+  phi2 = Coefficient[phiS, x, 2];
+  cc = 2 phi2 secInt;
+  ccStar = 16 Sqrt[Pi] Gamma[7/6]/(27 Gamma[2/3]);
+  tovValue["limit_model_proper_C", N[cc, 20], 15];
+  tovRecord["threshold.limit_model_proper_constant", "exact",
+   "C = 2 kappa (2/3)^(2/3) Int_0^(Pi/2) sec^(2/3) = 16 Sqrt[Pi] Gamma[7/6]/(27 Gamma[2/3]) > 0",
+   FullSimplify[cc - ccStar] === 0 && cc > 0];
+  tovRecord["threshold.limit_model_proper_negative_control", "negative_control",
+   "replacing the x^2 coefficient 8/81 of 1/L_tau by 8/27 multiplies C by 3, so the constant check would fail",
+   Simplify[phi2 - 8/27] === -16/81 && FullSimplify[(2 (8/27) secInt)/ccStar] === 3];
+  limHalf[qv_] := Module[{bv = qv nL[qv]}, NIntegrate[Module[{xx = qv + (1 - qv) Sin[s]^2},
+       bv/(yL[xx] xx Sqrt[(xx nL[xx])^2 - bv^2]) 2 (1 - qv) Sin[s] Cos[s]], {s, 0, Pi/2},
+      WorkingPrecision -> 40, PrecisionGoal -> 20, MaxRecursion -> 60]];
+  ratio = (2 limHalf[1/1000] - Pi/3)/(1/1000)^2;
+  tovValue["limit_model_proper_slope_ratio.q_0.001", ratio, 10];
+  tovRecord["threshold.limit_model_proper_slope", "numerical_check",
+   "at mu = 8/9 and q = 1/1000, (Delta_tau - Pi/3)/q^2 is within 1% of C",
+   Abs[ratio/ccStar - 1] < 1/100]];
 
 tovFinish["centre_slope_threshold"];

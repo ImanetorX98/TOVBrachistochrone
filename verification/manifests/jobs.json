@@ -314,6 +314,7 @@
     "centre.expansion",
     "centre.mu_delta",
     "centre.proper_bound",
+    "centre.proper_limit_increase",
     "centre.proper_not_monotone",
     "centre.signs"
    ],
@@ -444,6 +445,26 @@
      "id": "threshold.proper_not_monotone_near_buchdahl",
      "kind": "numerical_check",
      "claim": "centre.proper_not_monotone"
+    },
+    {
+     "id": "threshold.limit_model_proper_series",
+     "kind": "exact",
+     "claim": "centre.proper_limit_increase"
+    },
+    {
+     "id": "threshold.limit_model_proper_constant",
+     "kind": "exact",
+     "claim": "centre.proper_limit_increase"
+    },
+    {
+     "id": "threshold.limit_model_proper_slope",
+     "kind": "numerical_check",
+     "claim": "centre.proper_limit_increase"
+    },
+    {
+     "id": "threshold.limit_model_proper_negative_control",
+     "kind": "negative_control",
+     "claim": "centre.proper_limit_increase"
     }
    ]
   },

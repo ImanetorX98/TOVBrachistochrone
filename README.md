@@ -6,11 +6,19 @@ A test particle released from rest at the stellar surface moves on a frictionles
 the coordinate time t or the proper time τ reduces to two Fermat problems on the static slice, with different optical
 indices. Version 2 of this repository is the reproducibility package of a mathematical study of these problems. For
 the uniform-density (Schwarzschild interior) star the curves, the aperture and the travel times are given in closed
-form: abelian integrals on a curve of genus two (a smooth sextic model, on the regular branch of turning radii),
-and complete elliptic integrals for the expansion near the centre.
+form: abelian integrals on a curve of genus two (for regular turning radii with a square-free sextic), and complete
+elliptic integrals for the expansion near the centre. The suite also checks the limiting model at the Buchdahl bound,
+a numerical candidate for a proper-time coexistence separation, and the anisotropic Florides interior beyond the
+Buchdahl bound.
 
-> **Status.** Version 2 is in development on the branch `v2-dev`. Version 1 (numerical code of the 2026 submission)
-> is frozen at the tag `v1.0-submission`; its scripts are kept in `legacy_v1/` (see `LEGACY_NAMES.md`).
+> **Status.** Release 2.0.0 accompanies the paper *Brachistochrones inside static stars: existence, global minimality
+> and exact results for two uniform-density interiors*. Version 1 (numerical code of the 2026 submission) is frozen at
+> the tag `v1.0-submission`; its scripts are kept in `legacy_v1/` (see `LEGACY_NAMES.md`).
+
+## Citation
+
+Archived on Zenodo, concept DOI [10.5281/zenodo.21797700](https://doi.org/10.5281/zenodo.21797700) (all versions);
+each release has its own version DOI. See [`CITATION.cff`](CITATION.cff).
 
 ## Where to start
 
@@ -31,7 +39,7 @@ and complete elliptic integrals for the expansion near the centre.
 | `tools/run_verification.py` | the single entry point; validates every JSON result against the manifest |
 | `tools/test_run_verification.py` | negative tests of the validator |
 | `legacy_v1/` | the numerical code of version 1 (general equations of state, figures) |
-| `results/` | run outputs (`results/runs/` is not tracked) |
+| `results/` | run outputs (`results/runs/` is not tracked); `results/release/v2.0.0/` holds the report of the release run |
 
 ## Running the verification
 
@@ -54,7 +62,9 @@ manifests used are the ones whose SHA-256 is recorded (a change during the run f
 result; 2 for a usage or manifest error; 3 if the profile could not be completed (missing engine, timeout, unclean
 or unknown Git state for `release`).
 
-The release profile prepares evidence; it does not tag, publish or deposit anything.
+The release profile prepares evidence; it does not tag, publish or deposit anything. The report of the release run of
+version 2.0.0, made on a fresh clone of the release-candidate commit, is archived in `results/release/v2.0.0/`
+(`summary.json` with the commit, the engine version and the SHA-256 of every verification file, and `report.txt`).
 
 ## Conventions
 

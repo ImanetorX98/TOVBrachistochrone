@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "TOVBrachistochrone: verification suite for brachistochrones inside static stars"
+version: 2.0.0
+date-released: 2026-11-14
+doi: 10.5281/zenodo.21797700
+license: MIT
+repository-code: "https://github.com/ImanetorX98/TOVBrachistochrone"
+authors:
+  - family-names: Rosignoli
+    given-names: Iman
+    affiliation: "Department of Physics, University of Pavia"
+keywords:
+  - brachistochrone
+  - general relativity
+  - optical metric
+  - Schwarzschild interior
+  - hyperelliptic integrals
+  - reproducibility
+abstract: >-
+  Reproducibility package of the paper "Brachistochrones inside static stars: existence, global minimality and exact
+  results for two uniform-density interiors". Wolfram Language scripts check every symbolic identity, threshold and
+  number of the paper; a single Python entry point runs them in profiles quick, full and release and validates the
+  JSON results against a reviewed manifest. The DOI above is the concept DOI of all versions.

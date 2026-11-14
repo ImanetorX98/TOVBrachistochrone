@@ -1,0 +1,26 @@
+{
+  "title": "TOVBrachistochrone v2.0.0: verification suite for brachistochrones inside static stars",
+  "upload_type": "software",
+  "version": "2.0.0",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Rosignoli, Iman",
+      "affiliation": "Department of Physics, University of Pavia"
+    }
+  ],
+  "description": "<p>Reproducibility package of the paper <em>Brachistochrones inside static stars: existence, global minimality and exact results for two uniform-density interiors</em>.</p><p>A particle released from rest at the surface of a static star slides on a frictionless rail through the interior; minimizing the coordinate or the proper travel time is a Fermat problem for an optical metric that is singular at the surface. Version 2 checks the results of the mathematical paper: the genus-two reduction and the closed forms of the uniform-density (Schwarzschild interior) rails, apertures and travel times; the complete third-kind lemma; the exact thresholds of regular turning radii, of the central slope and of the curvature criteria; the Hamilton&ndash;Jacobi identity and the antipodal comparison; the limiting model at the Buchdahl bound and a numerical candidate for a proper-time coexistence separation; and the anisotropic Florides interior beyond the Buchdahl bound.</p><p>Thirteen Wolfram Language jobs (259 checks) record exact symbolic decisions, numerical checks, diagnostics and negative controls in versioned JSON; <code>tools/run_verification.py</code> runs the profiles quick, full and release and validates each result against the manifest. <code>RESULTS_MAP.md</code> maps each statement of the paper to its script, its checks and its kind of evidence, and lists the analytic proof steps that the suite does not execute. The report of the release run on a clean checkout is in <code>results/release/v2.0.0/</code>. Version 1 (numerical code of the 2026 submission) is kept in <code>legacy_v1/</code>.</p>",
+  "keywords": [
+    "brachistochrone",
+    "general relativity",
+    "Fermat principle",
+    "optical metric",
+    "Schwarzschild interior",
+    "Buchdahl bound",
+    "hyperelliptic integrals",
+    "anisotropic stars",
+    "reproducibility",
+    "Wolfram Language"
+  ],
+  "notes": "Version 2.0.0: complete rewrite as the verification suite of the mathematical paper (v1 numerical code moved to legacy_v1/). Requirements: wolframscript (tested with 13.3.1) and Python 3.10 or later, standard library only."
+}

@@ -3,3 +3,9 @@
 Run outputs of `tools/run_verification.py` go to `results/runs/<UTC time>-<profile>-<run id>/` (not tracked by git):
 `.run_id` (the reservation marker), `jobs/` (one JSON result, one stdout log and one stderr log per job),
 `report.txt`, and `summary.json`, which is written last.
+
+## Release reports
+
+`results/release/v2.0.0/` contains `summary.json` and `report.txt` of the release-profile run made on a fresh clone of
+the release-candidate commit recorded in `summary.json` (field `git`). The only later change before the tag is the
+addition of this report; the per-job logs of that run are not tracked.

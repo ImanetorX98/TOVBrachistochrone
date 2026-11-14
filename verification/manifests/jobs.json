@@ -1456,6 +1456,44 @@
      "claim": "minimality.antipodal_witness"
     }
    ]
+  },
+  {
+   "job_id": "maxwell_angle",
+   "script": "verification/symbolic/maxwell_angle.wls",
+   "engine": "wolframscript",
+   "category": "proof_support",
+   "claims": [
+    "minimality.proper_maxwell_example"
+   ],
+   "expected_seconds": 180,
+   "timeout_seconds": 900,
+   "checks": [
+    {
+     "id": "maxwell.aperture_not_monotone",
+     "kind": "numerical_check",
+     "claim": "minimality.proper_maxwell_example"
+    },
+    {
+     "id": "maxwell.equal_times",
+     "kind": "numerical_check",
+     "claim": "minimality.proper_maxwell_example"
+    },
+    {
+     "id": "maxwell.bracket",
+     "kind": "numerical_check",
+     "claim": "minimality.proper_maxwell_example"
+    },
+    {
+     "id": "maxwell.rising_branch_slower",
+     "kind": "numerical_check",
+     "claim": "minimality.proper_maxwell_example"
+    },
+    {
+     "id": "maxwell.scan_three_crossings",
+     "kind": "diagnostic",
+     "claim": "minimality.proper_maxwell_example"
+    }
+   ]
   }
  ]
 }

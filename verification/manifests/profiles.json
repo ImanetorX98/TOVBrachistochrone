@@ -24,7 +24,8 @@
     "aperture_endpoints",
     "aperture_monotonicity",
     "florides_interior",
-    "hamilton_jacobi"
+    "hamilton_jacobi",
+    "maxwell_angle"
    ]
   },
   "release": {
@@ -41,7 +42,8 @@
     "aperture_endpoints",
     "aperture_monotonicity",
     "florides_interior",
-    "hamilton_jacobi"
+    "hamilton_jacobi",
+    "maxwell_angle"
    ],
    "requires_clean_tree": true
   }

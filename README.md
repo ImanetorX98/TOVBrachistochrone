@@ -17,7 +17,7 @@ Buchdahl bound.
 
 ## Citation
 
-Archived on Zenodo, concept DOI [10.5281/zenodo.21797700](https://doi.org/10.5281/zenodo.21797700) (all versions);
+Archived on Zenodo, concept DOI [10.5281/zenodo.21797699](https://doi.org/10.5281/zenodo.21797699) (all versions);
 each release has its own version DOI. See [`CITATION.cff`](CITATION.cff).
 
 ## Where to start

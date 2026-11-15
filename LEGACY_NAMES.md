@@ -1,6 +1,6 @@
 # Legacy names (v1 → v2)
 
-Version 1 (tag `v1.0-submission`, Zenodo concept DOI 10.5281/zenodo.21797700) contained four files at the root of
+Version 1 (tag `v1.0-submission`, Zenodo version DOI 10.5281/zenodo.21797700, concept DOI 10.5281/zenodo.21797699) contained four files at the root of
 the repository. In v2 they are kept unchanged in function, moved to `legacy_v1/` and given English names. The tag
 `v1.0-submission` still contains the original files.
 

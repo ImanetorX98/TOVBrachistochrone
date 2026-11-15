@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "TOVBrachistochrone: verification suite for brachistochrones inside static stars"
 version: 2.0.0
 date-released: 2026-11-14
-doi: 10.5281/zenodo.21797700
+doi: 10.5281/zenodo.21797699
 license: MIT
 repository-code: "https://github.com/ImanetorX98/TOVBrachistochrone"
 authors:

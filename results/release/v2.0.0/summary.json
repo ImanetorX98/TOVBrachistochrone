@@ -1,0 +1,550 @@
+{
+ "schema_version": "tov-summary/2",
+ "run_id": "e7b079b751664c98bb528b2a060b3424",
+ "profile": "release",
+ "profile_description": "The full profile on a clean working tree, with the commit, engine version and SHA-256 digests of every verification file recorded. Prepares evidence; it does not publish anything.",
+ "started_utc": "20261115T123819Z",
+ "python": "3.14.7",
+ "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+ "git": {
+  "ok": true,
+  "commit": "0e88d74cbab357aeac605357e093d696905aaa61",
+  "branch": "v2-dev",
+  "clean": true,
+  "changes": []
+ },
+ "jobs": [
+  {
+   "job_id": "uniform_density_reduction",
+   "script": "verification/symbolic/uniform_density_reduction.wls",
+   "category": "proof_support",
+   "claims": [
+    "uniform.buchdahl_branch_point",
+    "uniform.decomposition",
+    "uniform.energy_gap",
+    "uniform.genus_two",
+    "uniform.no_obvious_splitting",
+    "uniform.reduced_aperture",
+    "uniform.turning_root"
+   ],
+   "script_sha256": "3ad9ad30e0f298961872f1f5358a6b922c89cfff6f68a1e4857e26a9ad7d95bc",
+   "exit_code": 0,
+   "elapsed_seconds": 1.79,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 21,
+    "passed": 21,
+    "by_kind": {
+     "exact": {
+      "pass": 12,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 8,
+      "fail": 0
+     },
+     "diagnostic": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/uniform_density_reduction.json",
+   "stdout_log": "jobs/uniform_density_reduction.stdout.log",
+   "stderr_log": "jobs/uniform_density_reduction.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "clairaut_monotonicity",
+   "script": "verification/symbolic/clairaut_monotonicity.wls",
+   "category": "proof_support",
+   "claims": [
+    "monotonicity.proper",
+    "monotonicity.threshold"
+   ],
+   "script_sha256": "809a722ec68dec4089f8168584f714e9304112ae4b7c765c08687fc183586e5c",
+   "exit_code": 0,
+   "elapsed_seconds": 1.84,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 9,
+    "passed": 9,
+    "by_kind": {
+     "exact": {
+      "pass": 9,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/clairaut_monotonicity.json",
+   "stdout_log": "jobs/clairaut_monotonicity.stdout.log",
+   "stderr_log": "jobs/clairaut_monotonicity.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "centre_slope_closed_forms",
+   "script": "verification/symbolic/centre_slope_closed_forms.wls",
+   "category": "proof_support",
+   "claims": [
+    "centre.coordinate_closed_form",
+    "centre.proper_buchdahl",
+    "centre.proper_closed_form"
+   ],
+   "script_sha256": "9da2445ee847be17fcc4cee85acc09a47662be4736ae694a396d4ecaf3e0db3a",
+   "exit_code": 0,
+   "elapsed_seconds": 2.01,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 21,
+    "passed": 21,
+    "by_kind": {
+     "exact": {
+      "pass": 11,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 9,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/centre_slope_closed_forms.json",
+   "stdout_log": "jobs/centre_slope_closed_forms.stdout.log",
+   "stderr_log": "jobs/centre_slope_closed_forms.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "centre_slope_threshold",
+   "script": "verification/symbolic/centre_slope_threshold.wls",
+   "category": "proof_support",
+   "claims": [
+    "centre.expansion",
+    "centre.mu_delta",
+    "centre.proper_bound",
+    "centre.proper_limit_increase",
+    "centre.proper_not_monotone",
+    "centre.signs"
+   ],
+   "script_sha256": "ef9f81cbb121b37fe9965ef0009134b1220216a44b886cd96902967d747ef6a9",
+   "exit_code": 0,
+   "elapsed_seconds": 5.95,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 29,
+    "passed": 29,
+    "by_kind": {
+     "exact": {
+      "pass": 13,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 15,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/centre_slope_threshold.json",
+   "stdout_log": "jobs/centre_slope_threshold.stdout.log",
+   "stderr_log": "jobs/centre_slope_threshold.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "aperture_closed_form",
+   "script": "verification/symbolic/aperture_closed_form.wls",
+   "category": "proof_support",
+   "claims": [
+    "aperture.closed_form",
+    "aperture.domain",
+    "lemma.third_kind"
+   ],
+   "script_sha256": "bc86c304c49ec55b92d05f8deb5d362817f268908c8d23cd332a4a66b462da8d",
+   "exit_code": 0,
+   "elapsed_seconds": 109.7,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 69,
+    "passed": 69,
+    "by_kind": {
+     "exact": {
+      "pass": 3,
+      "fail": 0
+     },
+     "diagnostic": {
+      "pass": 16,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 48,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 2,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/aperture_closed_form.json",
+   "stdout_log": "jobs/aperture_closed_form.stdout.log",
+   "stderr_log": "jobs/aperture_closed_form.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "whole_curve",
+   "script": "verification/symbolic/whole_curve.wls",
+   "category": "proof_support",
+   "claims": [
+    "curve.closed_form"
+   ],
+   "script_sha256": "ea0ca2626a6d646e349f000f593d341a1792a07c1b9fdbaf00085cee50369255",
+   "exit_code": 0,
+   "elapsed_seconds": 21.34,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 5,
+    "passed": 5,
+    "by_kind": {
+     "numerical_check": {
+      "pass": 4,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/whole_curve.json",
+   "stdout_log": "jobs/whole_curve.stdout.log",
+   "stderr_log": "jobs/whole_curve.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "travel_times",
+   "script": "verification/symbolic/travel_times.wls",
+   "category": "proof_support",
+   "claims": [
+    "times.closed_form",
+    "times.elements",
+    "times.newtonian_limit",
+    "times.ordering"
+   ],
+   "script_sha256": "8a1f7161ea2642afbfc92325b2c70054d2cacc4b5c7d5939c9c9e7ee5786a526",
+   "exit_code": 0,
+   "elapsed_seconds": 34.59,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 22,
+    "passed": 22,
+    "by_kind": {
+     "exact": {
+      "pass": 2,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 19,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/travel_times.json",
+   "stdout_log": "jobs/travel_times.stdout.log",
+   "stderr_log": "jobs/travel_times.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "aperture_profile",
+   "script": "verification/diagnostics/aperture_profile.wls",
+   "category": "diagnostic",
+   "claims": [
+    "profile.diagnostics"
+   ],
+   "script_sha256": "a0f59c4505ca06ba50accc9efdb73b24c8614e75fb0e380189593ca4f0d265cb",
+   "exit_code": 0,
+   "elapsed_seconds": 18.17,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 7,
+    "passed": 7,
+    "by_kind": {
+     "diagnostic": {
+      "pass": 7,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/aperture_profile.json",
+   "stdout_log": "jobs/aperture_profile.stdout.log",
+   "stderr_log": "jobs/aperture_profile.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "aperture_endpoints",
+   "script": "verification/symbolic/aperture_endpoints.wls",
+   "category": "proof_support",
+   "claims": [
+    "aperture.interior_divergence",
+    "aperture.surface_asymptotics",
+    "aperture.threshold_divergence"
+   ],
+   "script_sha256": "7bd2edc4f6be7bb531145187bdd772ce4e0d5df138a203013a1d40b615aeebeb",
+   "exit_code": 0,
+   "elapsed_seconds": 4.68,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 24,
+    "passed": 24,
+    "by_kind": {
+     "exact": {
+      "pass": 3,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 21,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/aperture_endpoints.json",
+   "stdout_log": "jobs/aperture_endpoints.stdout.log",
+   "stderr_log": "jobs/aperture_endpoints.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "aperture_monotonicity",
+   "script": "verification/symbolic/aperture_monotonicity.wls",
+   "category": "proof_support",
+   "claims": [
+    "aperture.global_monotonicity_coordinate",
+    "aperture.global_monotonicity_proper",
+    "aperture.monotonicity_criterion"
+   ],
+   "script_sha256": "cdce6f1c44c915b4bd69497431e7900eaaf041eeb1d4063c9b5ef2f7b594c44c",
+   "exit_code": 0,
+   "elapsed_seconds": 10.79,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 20,
+    "passed": 20,
+    "by_kind": {
+     "exact": {
+      "pass": 16,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 1,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 1,
+      "fail": 0
+     },
+     "diagnostic": {
+      "pass": 2,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/aperture_monotonicity.json",
+   "stdout_log": "jobs/aperture_monotonicity.stdout.log",
+   "stderr_log": "jobs/aperture_monotonicity.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "florides_interior",
+   "script": "verification/symbolic/florides_interior.wls",
+   "category": "proof_support",
+   "claims": [
+    "anisotropic.centre_slopes",
+    "anisotropic.clairaut",
+    "anisotropic.coordinate_curvature",
+    "anisotropic.genus",
+    "anisotropic.model",
+    "anisotropic.proper_uniqueness"
+   ],
+   "script_sha256": "e54170156bf69d017e2e7ec5211de2ba59868f1d444c653f49e731b1467dd718",
+   "exit_code": 0,
+   "elapsed_seconds": 3.0,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 16,
+    "passed": 16,
+    "by_kind": {
+     "exact": {
+      "pass": 13,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 1,
+      "fail": 0
+     },
+     "negative_control": {
+      "pass": 1,
+      "fail": 0
+     },
+     "diagnostic": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/florides_interior.json",
+   "stdout_log": "jobs/florides_interior.stdout.log",
+   "stderr_log": "jobs/florides_interior.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "hamilton_jacobi",
+   "script": "verification/symbolic/hamilton_jacobi.wls",
+   "category": "proof_support",
+   "claims": [
+    "minimality.antipodal_witness",
+    "minimality.hamilton_jacobi"
+   ],
+   "script_sha256": "9c8a43731bbb33bbbf6ae5d11483ee928ae5ac58e48e68303f9be033b232808d",
+   "exit_code": 0,
+   "elapsed_seconds": 5.94,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 11,
+    "passed": 11,
+    "by_kind": {
+     "exact": {
+      "pass": 1,
+      "fail": 0
+     },
+     "numerical_check": {
+      "pass": 10,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/hamilton_jacobi.json",
+   "stdout_log": "jobs/hamilton_jacobi.stdout.log",
+   "stderr_log": "jobs/hamilton_jacobi.stderr.log",
+   "stderr_tail": []
+  },
+  {
+   "job_id": "maxwell_angle",
+   "script": "verification/symbolic/maxwell_angle.wls",
+   "category": "proof_support",
+   "claims": [
+    "minimality.proper_maxwell_example"
+   ],
+   "script_sha256": "c2144c12e0b3192e802e18e69c1383313fbed09118526456137e27852f817d4e",
+   "exit_code": 0,
+   "elapsed_seconds": 113.19,
+   "outcome": "passed",
+   "problems": [],
+   "counts": {
+    "total": 5,
+    "passed": 5,
+    "by_kind": {
+     "numerical_check": {
+      "pass": 4,
+      "fail": 0
+     },
+     "diagnostic": {
+      "pass": 1,
+      "fail": 0
+     }
+    },
+    "engine_version": "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+   },
+   "result_json": "jobs/maxwell_angle.json",
+   "stdout_log": "jobs/maxwell_angle.stdout.log",
+   "stderr_log": "jobs/maxwell_angle.stderr.log",
+   "stderr_tail": []
+  }
+ ],
+ "status": "passed",
+ "problems": [],
+ "engine": {
+  "path": "/usr/local/bin/wolframscript",
+  "versions_reported": [
+   "13.3.1 for Mac OS X ARM (64-bit) (July 24, 2023)"
+  ]
+ },
+ "manifest_sha256_parsed": {
+  "verification/manifests/jobs.json": "cac8cda49ac323b9219121bc06b5a2d2952d107dbbd8207c38eb73eb7f40e3e4",
+  "verification/manifests/profiles.json": "4697a158b70f8d194b86c5c68058f81c4dac02a1b29f834d1d3a3c5ad396566d"
+ },
+ "sha256_before": {
+  "tools/progress.py": "405bcf4d4fe2b713a763492d7dedf9a56f8f2ce8064d4796f96fe46a50ac1cde",
+  "tools/run_verification.py": "8beeb32edb8673efec47c4a2c18f1b3eda9cf99046629497b1b76f791dfd2f03",
+  "verification/common.wl": "4d903f15458099fdfcc77eaf48656a4ccbb39a3ed81b43f82a13d0a4fc89a692",
+  "verification/diagnostics/aperture_profile.wls": "a0f59c4505ca06ba50accc9efdb73b24c8614e75fb0e380189593ca4f0d265cb",
+  "verification/symbolic/aperture_closed_form.wls": "bc86c304c49ec55b92d05f8deb5d362817f268908c8d23cd332a4a66b462da8d",
+  "verification/symbolic/aperture_endpoints.wls": "7bd2edc4f6be7bb531145187bdd772ce4e0d5df138a203013a1d40b615aeebeb",
+  "verification/symbolic/aperture_monotonicity.wls": "cdce6f1c44c915b4bd69497431e7900eaaf041eeb1d4063c9b5ef2f7b594c44c",
+  "verification/symbolic/centre_slope_closed_forms.wls": "9da2445ee847be17fcc4cee85acc09a47662be4736ae694a396d4ecaf3e0db3a",
+  "verification/symbolic/centre_slope_threshold.wls": "ef9f81cbb121b37fe9965ef0009134b1220216a44b886cd96902967d747ef6a9",
+  "verification/symbolic/clairaut_monotonicity.wls": "809a722ec68dec4089f8168584f714e9304112ae4b7c765c08687fc183586e5c",
+  "verification/symbolic/florides_interior.wls": "e54170156bf69d017e2e7ec5211de2ba59868f1d444c653f49e731b1467dd718",
+  "verification/symbolic/hamilton_jacobi.wls": "9c8a43731bbb33bbbf6ae5d11483ee928ae5ac58e48e68303f9be033b232808d",
+  "verification/symbolic/maxwell_angle.wls": "c2144c12e0b3192e802e18e69c1383313fbed09118526456137e27852f817d4e",
+  "verification/symbolic/travel_times.wls": "8a1f7161ea2642afbfc92325b2c70054d2cacc4b5c7d5939c9c9e7ee5786a526",
+  "verification/symbolic/uniform_density_reduction.wls": "3ad9ad30e0f298961872f1f5358a6b922c89cfff6f68a1e4857e26a9ad7d95bc",
+  "verification/symbolic/whole_curve.wls": "ea0ca2626a6d646e349f000f593d341a1792a07c1b9fdbaf00085cee50369255",
+  "verification/third_kind_lemma.wl": "85e959aa967f5c9240166cd48d75f5b3978d82e6db1e52032d19b265f6667095",
+  "verification/manifests/jobs.json": "cac8cda49ac323b9219121bc06b5a2d2952d107dbbd8207c38eb73eb7f40e3e4",
+  "verification/manifests/profiles.json": "4697a158b70f8d194b86c5c68058f81c4dac02a1b29f834d1d3a3c5ad396566d"
+ },
+ "sha256_after": {
+  "tools/progress.py": "405bcf4d4fe2b713a763492d7dedf9a56f8f2ce8064d4796f96fe46a50ac1cde",
+  "tools/run_verification.py": "8beeb32edb8673efec47c4a2c18f1b3eda9cf99046629497b1b76f791dfd2f03",
+  "verification/common.wl": "4d903f15458099fdfcc77eaf48656a4ccbb39a3ed81b43f82a13d0a4fc89a692",
+  "verification/diagnostics/aperture_profile.wls": "a0f59c4505ca06ba50accc9efdb73b24c8614e75fb0e380189593ca4f0d265cb",
+  "verification/symbolic/aperture_closed_form.wls": "bc86c304c49ec55b92d05f8deb5d362817f268908c8d23cd332a4a66b462da8d",
+  "verification/symbolic/aperture_endpoints.wls": "7bd2edc4f6be7bb531145187bdd772ce4e0d5df138a203013a1d40b615aeebeb",
+  "verification/symbolic/aperture_monotonicity.wls": "cdce6f1c44c915b4bd69497431e7900eaaf041eeb1d4063c9b5ef2f7b594c44c",
+  "verification/symbolic/centre_slope_closed_forms.wls": "9da2445ee847be17fcc4cee85acc09a47662be4736ae694a396d4ecaf3e0db3a",
+  "verification/symbolic/centre_slope_threshold.wls": "ef9f81cbb121b37fe9965ef0009134b1220216a44b886cd96902967d747ef6a9",
+  "verification/symbolic/clairaut_monotonicity.wls": "809a722ec68dec4089f8168584f714e9304112ae4b7c765c08687fc183586e5c",
+  "verification/symbolic/florides_interior.wls": "e54170156bf69d017e2e7ec5211de2ba59868f1d444c653f49e731b1467dd718",
+  "verification/symbolic/hamilton_jacobi.wls": "9c8a43731bbb33bbbf6ae5d11483ee928ae5ac58e48e68303f9be033b232808d",
+  "verification/symbolic/maxwell_angle.wls": "c2144c12e0b3192e802e18e69c1383313fbed09118526456137e27852f817d4e",
+  "verification/symbolic/travel_times.wls": "8a1f7161ea2642afbfc92325b2c70054d2cacc4b5c7d5939c9c9e7ee5786a526",
+  "verification/symbolic/uniform_density_reduction.wls": "3ad9ad30e0f298961872f1f5358a6b922c89cfff6f68a1e4857e26a9ad7d95bc",
+  "verification/symbolic/whole_curve.wls": "ea0ca2626a6d646e349f000f593d341a1792a07c1b9fdbaf00085cee50369255",
+  "verification/third_kind_lemma.wl": "85e959aa967f5c9240166cd48d75f5b3978d82e6db1e52032d19b265f6667095",
+  "verification/manifests/jobs.json": "cac8cda49ac323b9219121bc06b5a2d2952d107dbbd8207c38eb73eb7f40e3e4",
+  "verification/manifests/profiles.json": "4697a158b70f8d194b86c5c68058f81c4dac02a1b29f834d1d3a3c5ad396566d"
+ },
+ "finished_utc": "20261115T124047Z"
+}

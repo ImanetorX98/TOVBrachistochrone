@@ -8,5 +8,6 @@ Run outputs of `tools/run_verification.py` go to `results/runs/<UTC time>-<profi
 
 `results/release/v2.0.0/` contains `summary.json` and `report.txt` of the release-profile run made on a fresh clone of
 the release-candidate commit recorded in `summary.json` (field `git`). The only later change before the tag is the
-addition of this report; the per-job logs of that run are not tracked. In `report.txt` the local output path of the run
+addition of this report; neither the per-job logs nor the per-job JSON results of that run are
+tracked, so the report does not keep every digit of the individual jobs. In `report.txt` the local output path of the run
 is redacted; nothing else is changed.

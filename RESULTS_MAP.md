@@ -1,8 +1,8 @@
 # Result map
 
-The results implemented so far, with the script that checks them, the kind of evidence and the profile that runs
-them. Claim labels are stable identifiers; the LaTeX labels of the manuscript will be added when the paper is
-written, and only then can coverage of every claim of the paper be stated. Every check identifier in
+An index of the results covered by the verification suite, with the script that checks each of them, the kind of
+evidence and the profile that runs them. Claim labels are stable identifiers; entries marked analytic have no executed
+check, and statements of the paper that are not listed here are not covered by the suite. Every check identifier in
 `verification/manifests/jobs.json` names the claim it supports; the manifest is a reviewed contract and is never
 regenerated from run outputs. Sample parameters in identifiers are exact rationals (`mu_1_10` is mu = 1/10).
 

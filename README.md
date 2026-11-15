@@ -43,8 +43,11 @@ each release has its own version DOI. See [`CITATION.cff`](CITATION.cff).
 
 ## Running the verification
 
-Requirements: Wolfram Language with `wolframscript` on the `PATH` (tested with 13.3.1) and Python 3.10 or later
-(standard library only).
+Requirements: Wolfram Language with `wolframscript` on the `PATH` (tested with 13.3.1) and Python 3.10 or later; the
+v2 runner and its tests use the Python standard library only (the legacy v1 code has its own requirements, below). The
+release profile needs a Git clone with a clean working tree: from the Zenodo archive, which has no `.git`, run the
+`full` profile, or clone the tag from GitHub to run `release`. The release report records the versions of the
+environment; no installable environment is shipped.
 
 ```bash
 python3 tools/run_verification.py --profile quick      # exact identities, centre slopes and threshold (seconds)
@@ -69,7 +72,8 @@ version 2.0.0, made on a fresh clone of the release-candidate commit, is archive
 ## Conventions
 
 Geometrized units G = c = 1 with R = 1 in the scripts; physical times are obtained by multiplying by R/c.
-`mu = 2GM/(Rc^2) < 8/9` (Buchdahl), `y = sqrt(1 - mu r^2/R^2)`, `a = sqrt(1 - mu)`.
+`mu = 2GM/(Rc^2)`, `y = sqrt(1 - mu r^2/R^2)`, `a = sqrt(1 - mu)`; the isotropic uniform-density interior requires
+`mu < 8/9` (Buchdahl), the limiting model `mu = 8/9` is used only for limits, and the Florides interior allows `mu < 1`.
 Complete elliptic integrals use the parameter convention m = k^2, and Π(n|m) has the denominator 1 - n sin^2θ
 (DLMF §19.2).
 

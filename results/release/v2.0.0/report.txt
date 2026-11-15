@@ -1,0 +1,20 @@
+TOVBrachistochrone verification, profile 'release': PASSED
+run 4881c0a1091b4469a517404227952031; commit 48938cdb8513 on v2-dev
+
+  passed     uniform_density_reduction        1.8 s   diagnostic 1/1, exact 12/12, numerical_check 8/8
+  passed     clairaut_monotonicity            2.1 s   exact 9/9
+  passed     centre_slope_closed_forms        1.9 s   exact 11/11, negative_control 1/1, numerical_check 9/9
+  passed     centre_slope_threshold           5.6 s   exact 13/13, negative_control 1/1, numerical_check 15/15
+  passed     aperture_closed_form           108.8 s   diagnostic 16/16, exact 3/3, negative_control 2/2, numerical_check 48/48
+  passed     whole_curve                     21.7 s   negative_control 1/1, numerical_check 4/4
+  passed     travel_times                    34.9 s   exact 2/2, negative_control 1/1, numerical_check 19/19
+  passed     aperture_profile                18.4 s   diagnostic 7/7
+  passed     aperture_endpoints               4.7 s   exact 3/3, numerical_check 21/21
+  passed     aperture_monotonicity           11.0 s   diagnostic 2/2, exact 16/16, negative_control 1/1, numerical_check 1/1
+  passed     florides_interior                3.1 s   diagnostic 1/1, exact 13/13, negative_control 1/1, numerical_check 1/1
+  passed     hamilton_jacobi                  6.0 s   exact 1/1, numerical_check 10/10
+  passed     maxwell_angle                  112.1 s   diagnostic 1/1, numerical_check 4/4
+
+259 checks in 13 jobs, of which 28 are diagnostics (sampled statements, not proofs). A count of checks is not a count of theorems.
+Not executed by this suite: the analytic proof steps listed in RESULTS_MAP.md.
+Results: <output directory of the release run, path redacted>

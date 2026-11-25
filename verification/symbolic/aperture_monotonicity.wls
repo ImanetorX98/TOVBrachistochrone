@@ -18,11 +18,12 @@
    Second, independent proof on smaller ranges: with a = (a0 + u)/(1 + u), y = (a + v)/(1 + v), u, v >= 0, every non-zero
    coefficient of the numerator of -L_y is positive for a0 = 3/8 (tau, mu <= 55/64) and a0 = 7/10 (t, mu <= 51/100).
 
-   Integral extension for t to mu <= 16/25 (a >= 3/5). With A = Delta/2 and H = Phi'(j)/j, A'(b) = Int_b^oo Phi' dj/
+   Integral extension for t to mu <= 429/625 (a >= 14/25). With A = Delta/2 and H = Phi'(j)/j, A'(b) = Int_b^oo Phi' dj/
    Sqrt[j^2 - b^2] and A'(0) = C_t; if H has a single sign change (from + to -), is decreasing where positive, and C_t <= 0,
-   then A'(b) < 0 for b > 0. Checked: one sign change of N_t on (a, 1) for a in [3/5, a_t); N_t(a, 9/10) < 0 on [3/5, 7/10];
-   d/dy (H/mu) > 0 on [3/5, 7/10] x [9/10, 1]; C_t(16/25) < 0 by an analytic inequality between K, E and Pi (exact
-   algebraic steps checked here), and also by the value of the closed form.
+   then A'(b) < 0 for b > 0. Checked on 14/25 <= a <= 7/10 (which contains [14/25, a_t)): N_t < 0 for a < y <= 9/10,
+   dN_t/dy > 0 for 9/10 <= y <= 1, and N_t(a, 1) > 0 for a < a_t, so N_t has exactly one zero in (a, 1), in y > 9/10;
+   d/dy (H/mu) > 0 on [9/10, 1]; C_t(429/625) < 0 by a rational certificate (truncated binomial series of the closed-form
+   integrand, error bound 1/64, exact arcsine moments), and also by the value of the closed form.
    Diagnostics: Delta monotone on 217 radii near the proved limits. *)
 
 Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "common.wl"}]];
@@ -109,45 +110,53 @@ Module[{expr, coeffs},
   tovRecord["monotonicity_global.negative_control.buchdahl_certificate", "negative_control",
    "the positivity certificate for tau fails at a0 = 1/3 (some coefficient is negative)", Min[coeffs] < 0]];
 
-(* integral extension for t to a >= 3/5 *)
+(* integral extension for t to a >= 14/25, that is mu <= 429/625 *)
 nT = nPoly["coordinate"];
-(* N_t is monic in y up to a constant, so the number of its zeros in (a, 1) can change only where its discriminant vanishes
-   or where N_t vanishes at y = a or y = 1. On [3/5, a_t): the discriminant has no zero, N_t(a, a) = 32 a^4 (a^2 - 1) < 0 and
-   N_t(a, 1) vanishes only at a_t; one sample then fixes the count to one. *)
-tovRecord["monotonicity_global.extension.single_sign_change", "exact",
-  "on [3/5, a_t) the discriminant of N_t in y has no zero, N_t does not vanish at y = a or y = 1, and N_t has exactly one zero in (a, 1) at a = 3/5",
-  Reduce[3/5 <= a < aT && Discriminant[nT, y] == 0, a, Reals] === False &&
-   Reduce[3/5 <= a < aT && ((nT /. y -> a) == 0 || (nT /. y -> 1) == 0), a, Reals] === False &&
-   CountRoots[nT /. a -> 3/5, {y, 3/5, 1}] == 1];
+extDom = 14/25 <= a <= 7/10;   (* contains [14/25, a_t), a_t = 0.6931... *)
 tovRecord["monotonicity_global.extension.negative_core", "exact",
-  "N_t(a, 9/10) < 0 for a in [3/5, 7/10]: the positive part of Phi' lies in y > 9/10",
-  Reduce[3/5 <= a <= 7/10 && (nT /. y -> 9/10) >= 0, a, Reals] === False];
+  "N_t < 0 for a < y <= 9/10 and a in [14/25, 7/10]: the positive part of Phi' lies in y > 9/10",
+  Reduce[extDom && a < y <= 9/10 && nT >= 0, {a, y}, Reals] === False];
+tovRecord["monotonicity_global.negative_control.extension_cut", "negative_control",
+  "the cut at y = 9/10 fails if the range is extended to a = 1/2: N_t(1/2, 9/10) = 5317/31250 > 0 (rational point test)",
+  With[{v = nT /. {a -> 1/2, y -> 9/10}}, Head[v] === Rational && v > 0]];
+tovRecord["monotonicity_global.extension.increasing_tail", "exact",
+  "dN_t/dy > 0 on [14/25, 7/10] x [9/10, 1]",
+  Reduce[extDom && 9/10 <= y <= 1 && D[nT, y] <= 0, {a, y}, Reals] === False];
+tovRecord["monotonicity_global.extension.single_sign_change", "exact",
+  "N_t(a, 1) > 0 exactly for a < a_t on [14/25, 7/10]; with the two records above, N_t has exactly one zero in (a, 1) for a in [14/25, a_t), from negative to positive toward the center",
+  Reduce[14/25 <= a < aT && (nT /. y -> 1) <= 0, a, Reals] === False && RootReduce[nT /. {a -> aT, y -> 1}] === 0];
 Module[{fF = 16 (1 - y^2)/((3 a - y)^2 q), hOverMu},
   hOverMu = 2 D[1/lUnified["coordinate"], y]/D[fF, y];
   tovRecord["monotonicity_global.extension.h_monotone", "exact",
-   "d/dy (H/mu) > 0 on [3/5, 7/10] x [9/10, 1], i.e. H = Phi'(j)/j decreasing in j where Phi' > 0",
-   Reduce[3/5 <= a <= 7/10 && 9/10 <= y <= 1 && Together[D[hOverMu, y]] <= 0, {a, y}, Reals] === False]];
-(* C_t(16/25) < 0 without numerical evaluation (a = 3/5). With s = Sin[theta]^2, Sqrt[1 - m s] = 1/Sqrt[1 - m s] -
-   m s/Sqrt[1 - m s] gives E = K - m I, I = Int_0^{Pi/2} s d theta/Sqrt[1 - m s]. Analytic steps (not executed here):
-   Pi(nu|m) >= K for nu > 0; K >= Pi/2 and I <= (Pi/4)/Sqrt[1 - m], so I/K <= 1/(2 Sqrt[1 - m]). Exact steps below: m = 1/3,
-   nu = 1/5, the bracket is at most -(24/25) K + (36/25) I, and (36/25)/(2 Sqrt[1 - m]) < 24/25, so the bracket is negative. *)
-Module[{av = 3/5, mm, nn, kk, ee, ii, pp, bracket, ok},
-  mm = (1 - av) (1 + 5 av)/(8 av); nn = (1 - av)/2;
-  bracket = (1 + 3 av + 6 av^2) kk - 12 av^2 ee - (1 + av) pp;
-  ok = mm === 1/3 && nn === 1/5 &&
-    Simplify[Sqrt[1 - mm s] - (1/Sqrt[1 - mm s] - mm s/Sqrt[1 - mm s]), 0 < s < 1] === 0 &&
-    Expand[(bracket /. {ee -> kk - mm ii, pp -> kk}) - (-(24/25) kk + (36/25) ii)] === 0 &&
-    Coefficient[bracket, pp] < 0 &&
-    (36/25)/(2 Sqrt[1 - mm]) < 24/25;
+   "d/dy (H/mu) > 0 on [14/25, 7/10] x [9/10, 1], i.e. H = Phi'(j)/j decreasing in j where Phi' > 0",
+   Reduce[extDom && 9/10 <= y <= 1 && Together[D[hOverMu, y]] <= 0, {a, y}, Reals] === False]];
+(* C_t(429/625) < 0 by exact arithmetic (a = 14/25, d = 1/a - 1 = 11/14). The paper writes
+   C_t = -(Sqrt[mu] a^2/2) Int_0^1 p_d W_d/Sqrt[s (1 - s)] ds, p_d = 2 - 4 d s + d^2 s^2, W_d = (1 + d s)/Sqrt[B],
+   B = (4 - d s)(2 + d (1 + s)). With z = 1 - B/16, 4 p_d W_d = p_d (1 + d s)(1 - z)^(-1/2). On [0, 1]: 8 < B < 16, so
+   0 < z < 1/2; |p_d| <= 2 and 0 < 1 + d s < 2. The binomial coefficients Binomial[2k, k]/4^k are at most 1 for every k
+   (Binomial[2k, k] is one term of the row sum 4^k; the finite check below is only a sanity check), so the tail
+   after degree 8 is at most z^9/(1 - z) <= 1/256 and the error of the product is at most 1/64. The arcsine mean of the
+   truncation is computed exactly with the moments E[s^k] = Binomial[2k, k]/4^k; it exceeds 1/64, so the exact mean is
+   positive and C_t < 0. *)
+Module[{d = 11/14, s, pd, bb, z, trunc, mean, ok},
+  pd = 2 - 4 d s + d^2 s^2; bb = (4 - d s) (2 + d (1 + s)); z = 1 - bb/16;
+  trunc = Expand[pd (1 + d s) Sum[Binomial[2 k, k]/4^k z^k, {k, 0, 8}]];
+  mean = Total[CoefficientList[trunc, s] (Binomial[2 #, #]/4^# & /@ Range[0, Exponent[trunc, s]])];
+  ok = d === 1/(14/25) - 1 &&
+    Reduce[0 <= s <= 1 && ! (8 < bb < 16), s, Reals] === False &&
+    Reduce[0 <= s <= 1 && ! (-2 <= pd <= 2), s, Reals] === False &&
+    Reduce[0 <= s <= 1 && ! (0 < 1 + d s < 2), s, Reals] === False &&
+    AllTrue[Range[0, 40], Binomial[2 #, #]/4^# <= 1 &] && mean - 1/64 > 0;
+  tovValue["C_t_429_625.truncated_arcsine_mean", N[mean, 20], 12];
   tovRecord["monotonicity_global.extension.centre_slope_bound", "exact",
-   "C_t(16/25) < 0 analytically: m = 1/3, E = K - m I, Pi >= K, I/K <= 1/(2 Sqrt[1 - m]) < 2/3 make the bracket negative",
+   "C_t(429/625) < 0: 8 < B < 16, |p_d| <= 2, 1 + d s < 2 on [0, 1], and the exact arcsine mean of the degree-8 binomial truncation exceeds the error bound 1/64",
    TrueQ[ok]]];
-Module[{av = 3/5, mm, nn, ct},
+Module[{av = 14/25, mm, nn, ct},
   mm = (1 - av) (1 + 5 av)/(8 av); nn = (1 - av)/2;
   ct = N[(Sqrt[2 (1 - av^2)/av]/8) ((1 + 3 av + 6 av^2) EllipticK[mm] - 12 av^2 EllipticE[mm] - (1 + av) EllipticPi[nn, mm]), 30];
-  tovValue["C_t_at_16_25", ct, 20];
+  tovValue["C_t_at_429_625", ct, 20];
   tovRecord["monotonicity_global.extension.centre_slope", "numerical_check",
-   "C_t(16/25) < 0 (closed form evaluated at 30 digits; independent of the analytic bound above)", ct < 0]];
+   "C_t(429/625) < 0 (closed form evaluated at 30 digits; independent of the rational certificate above)", ct < 0]];
 
 (* diagnostics near the proved limits *)
 nsqY["proper"][z_, av_] := (3 av - z)^2/((z - av) (5 av - z));
@@ -163,6 +172,31 @@ grid = Join[Table[k/2000, {k, 1, 19}], Table[k/200, {k, 2, 199}]];
 Do[tovRecord["monotonicity_global.diagnostic." <> c[[1]] <> ".mu_" <> tovTag[c[[2]]], "diagnostic",
    "Delta strictly decreasing on 217 radii at a compactness inside the proved range",
    AllTrue[Differences[halfAp[c[[1]], c[[2]], #] & /@ grid], # < 0 &]],
-  {c, {{"proper", 886/1000}, {"coordinate", 16/25}}}];
+  {c, {{"proper", 886/1000}, {"coordinate", 429/625}}}];
+
+(* shape of Psi_t beyond the proved range (Discussion of the paper). With P = -Q_t, R = N_t (3a - y)^3 D^2 and
+   num = (P R_y - 3 P_y R)/((5a - y)(y - a)(3a - y)^2), the sign of d/dy (Psi/mu) on the positive part is that of num. *)
+Module[{aStar = Sqrt[Root[3645 #^3 + 3888 #^2 - 1080 # + 64 &, 3]], pT, rT, numT},
+  pT = -(y^4 - 3 a y^3 - (2 + 9 a^2) y^2 + (12 a + 15 a^3) y - 14 a^2);
+  rT = nT (3 a - y)^3 q^2;
+  numT = Cancel[(pT D[rT, y] - 3 D[pT, y] rT)/((5 a - y) (y - a) (3 a - y)^2)];
+  tovRecord["monotonicity_global.coordinate.single_sign_change_to_mu_star", "exact",
+   "for mu_t < mu < mu_* (a_* < a < a_t): N_t(a, a) < 0, N_t(a, 1) > 0 and every zero of N_t in (a, 1) has dN_t/dy > 0, so Psi_t changes sign exactly once, from positive near the center to negative",
+   Reduce[aStar < a < aT && ((nT /. y -> a) >= 0 || (nT /. y -> 1) <= 0), a, Reals] === False &&
+    Reduce[aStar < a < aT && a < y < 1 && nT == 0 && D[nT, y] <= 0, {a, y}, Reals] === False];
+  tovRecord["monotonicity_global.coordinate.psi_hump_witness", "exact",
+   "at mu = 21/25 (a = 2/5), (a, y) = (2/5, 9/10): P > 0, N_t > 0 and the reduced numerator of d/dy (Psi/mu) is negative, so Psi_t is positive and increasing in j near that point (rational point test); the monotonicity hypothesis of the integral criterion fails there",
+   With[{pt = {a -> 2/5, y -> 9/10}}, With[{vp = pT /. pt, vn = nT /. pt, vd = numT /. pt},
+     AllTrue[{vp, vn, vd}, Head[#] === Rational &] && vp > 0 && vn > 0 && vd < 0]]]];
+(* diagnostics beyond 429/625: decreasing below mu_Delta, a single maximum above it (sampled, not proved) *)
+Module[{vals = halfAp["coordinate", 3/4, #] & /@ grid},
+  tovRecord["monotonicity_global.diagnostic.coordinate.mu_3_4", "diagnostic",
+   "mu = 3/4 (between 429/625 and mu_Delta): Delta_t strictly decreasing on 217 radii", AllTrue[Differences[vals], # < 0 &]]];
+Do[Module[{vals = halfAp["coordinate", muv, #] & /@ grid, d},
+   d = Sign[Differences[vals]];
+   tovRecord["monotonicity_global.diagnostic.coordinate_unimodal.mu_" <> tovTag[muv], "diagnostic",
+    "mu = " <> ToString[muv, InputForm] <> " (between mu_Delta and mu_*): on 217 radii Delta_t starts above pi, increases and then decreases, with a single change of direction",
+    FreeQ[d, 0] && Length[Split[d]] == 2 && First[d] == 1 && 2 First[vals] > Pi]],
+  {muv, {4/5, 21/25}}];
 
 tovFinish["aperture_monotonicity"];

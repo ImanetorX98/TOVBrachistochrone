@@ -11,7 +11,7 @@ elliptic integrals for the expansion near the centre. The suite also checks the 
 a numerical candidate for a proper-time coexistence separation, and the anisotropic Florides interior beyond the
 Buchdahl bound.
 
-> **Status.** Release 2.0.0 accompanies the paper *Brachistochrones inside static stars: existence, global minimality
+> **Status.** Release 2.1.0 accompanies the paper *Brachistochrones inside static stars: existence, global minimality
 > and exact results for two uniform-density interiors*. Version 1 (numerical code of the 2026 submission) is frozen at
 > the tag `v1.0-submission`; its scripts are kept in `legacy_v1/` (see `LEGACY_NAMES.md`).
 
@@ -39,7 +39,7 @@ each release has its own version DOI. See [`CITATION.cff`](CITATION.cff).
 | `tools/run_verification.py` | the single entry point; validates every JSON result against the manifest |
 | `tools/test_run_verification.py` | negative tests of the validator |
 | `legacy_v1/` | the numerical code of version 1 (general equations of state, figures) |
-| `results/` | run outputs (`results/runs/` is not tracked); `results/release/v2.0.0/` holds the report of the release run |
+| `results/` | run outputs (`results/runs/` is not tracked); `results/release/v2.1.0/` holds the report of the release run (`v2.0.0/` that of the previous release) |
 
 ## Running the verification
 
@@ -66,7 +66,7 @@ result; 2 for a usage or manifest error; 3 if the profile could not be completed
 or unknown Git state for `release`).
 
 The release profile prepares evidence; it does not tag, publish or deposit anything. The report of the release run of
-version 2.0.0, made on a fresh clone of the release-candidate commit, is archived in `results/release/v2.0.0/`
+version 2.1.0, made on a fresh clone of the release-candidate commit, is archived in `results/release/v2.1.0/`
 (`summary.json` with the commit, the engine version and the SHA-256 of every verification file, and `report.txt`).
 
 ## Conventions

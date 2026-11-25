@@ -1264,6 +1264,16 @@
      "claim": "aperture.global_monotonicity_coordinate"
     },
     {
+     "id": "monotonicity_global.negative_control.extension_cut",
+     "kind": "negative_control",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.extension.increasing_tail",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
      "id": "monotonicity_global.extension.h_monotone",
      "kind": "exact",
      "claim": "aperture.global_monotonicity_coordinate"
@@ -1284,7 +1294,32 @@
      "claim": "aperture.global_monotonicity_proper"
     },
     {
-     "id": "monotonicity_global.diagnostic.coordinate.mu_16_25",
+     "id": "monotonicity_global.diagnostic.coordinate.mu_429_625",
+     "kind": "diagnostic",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.coordinate.single_sign_change_to_mu_star",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.coordinate.psi_hump_witness",
+     "kind": "exact",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.diagnostic.coordinate.mu_3_4",
+     "kind": "diagnostic",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.diagnostic.coordinate_unimodal.mu_4_5",
+     "kind": "diagnostic",
+     "claim": "aperture.global_monotonicity_coordinate"
+    },
+    {
+     "id": "monotonicity_global.diagnostic.coordinate_unimodal.mu_21_25",
      "kind": "diagnostic",
      "claim": "aperture.global_monotonicity_coordinate"
     }

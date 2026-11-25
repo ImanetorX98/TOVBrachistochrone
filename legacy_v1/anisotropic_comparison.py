@@ -294,7 +294,7 @@ def plot_curves(results, lambda_values=LAMBDA_VALUES, colors=COLORS, Delta=DELTA
 
         # Inset axes in axes-fraction coordinates (upper-right of panel)
         axins = ax.inset_axes([0.56, 0.52, 0.42, 0.44])
-        axins.set_facecolor('white')   # schermo bianco: copre i marker del parent
+        axins.set_facecolor('white')   # White background hides the parent-axis markers.
 
         for lam, col in zip(lambda_values, colors):
             res = results[lam]
